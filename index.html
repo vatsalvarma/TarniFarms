@@ -594,6 +594,7 @@
             margin-bottom: 18px;
             min-height: 22px;
             transition: opacity 0.35s ease;
+            transform: translateY(-45px);
         }
 
         .c-arrows {
@@ -612,11 +613,28 @@
             transition: transform 0.25s ease, opacity 0.25s ease;
             opacity: 0.75;
             padding: 4px 8px;
+             position: relative;
+            top: -60px;
         }
 
         .c-arrows button:hover {
             transform: scale(1.35);
             opacity: 1;
+        }
+
+        .boy-image {
+          position: absolute;
+          left: 1053px;
+          bottom: 6%;
+          height: 39%;
+          z-index: 9999;
+          pointer-events: none;
+        }
+
+        @media (max-width: 1024px) {
+          .banner { width: 68vw; }
+          .banner .top,
+          .banner .bottom { font-size: clamp(24px, 4.5vw, 46px); }
         }
 
         /* ==================== APPRECIATION WHEEL SECTION ==================== */
@@ -1436,6 +1454,7 @@
 
 <!-- INVESTMENT CIRCLES SECTION -->
 <section class="sec-incomes">
+    <img src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/boyimg.png" class="boy-image" />
     <div class="bg-image"></div>
 
     <div class="incomes-header">
