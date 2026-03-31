@@ -247,6 +247,17 @@
         .title-card::after { opacity: 1; }
         .title-card .title-content { position: relative; z-index: 2; color: #fff;}
 
+        .stay h3 {
+    margin: 0;              /* remove default gap */
+    line-height: 1.1;       /* tighter text */
+}
+
+.stay p {
+    margin: 4px 0 0 0;     /* reduce space above */
+}
+
+
+
         /* ==================== STRIP GALLERY SECTION ==================== */
         .strip-heading {
             position: absolute;
@@ -1329,7 +1340,7 @@
 
             <div class="card stay slide-down bg-solid">
                 <h3>STAY</h3>
-                <p style="font-size: 14px;">Cozy cabins with views of the aurora.</p>
+                <p style="font-size: 14px">Cozy cabins with views of the aurora.</p>
             </div>
 
             <div class="card img4 slide-right bg-image" style="background-image: url('https://raw.githubusercontent.com/vatsalvarma/Greensiri-Contact/refs/heads/main/image%203.png')"></div>
@@ -1377,7 +1388,7 @@
 
             <div class="card stay slide-down bg-solid">
                 <h3>STAY</h3>
-                <p style="font-size: 14px;">Boutique hotel with an infinity pool overlooking.</p>
+                <p style="font-size: 14px;">Boutique hotel with an pool.</p>
             </div>
 
             <div class="card img4 slide-right bg-image" style="background-image: url('https://raw.githubusercontent.com/vatsalvarma/Greensiri-Contact/refs/heads/main/hhh3.png')"></div>
@@ -1752,13 +1763,31 @@
         track.style.transform = `translateX(-${offset}px)`;
     }
 
-    setInterval(() => {
+   let autoSlide;
+
+function startAutoSlide() {
+    autoSlide = setInterval(() => {
         index++;
         if (index >= cards.length - 1) {
             index = 1;
         }
         updateSlider();
     }, 2500);
+}
+
+const slider = document.querySelector(".card-slider");
+
+slider.addEventListener("mouseenter", () => {
+    stopAutoSlide();   // ⛔ STOP on hover
+});
+
+slider.addEventListener("mouseleave", () => {
+    startAutoSlide();  // ▶️ RESUME after hover
+});
+
+function stopAutoSlide() {
+    clearInterval(autoSlide);
+}
 
     updateSlider();
 
@@ -1885,6 +1914,16 @@
             const label = el.querySelector('.c-label');
             cItems.push({ el, shape, label });
 
+             // ⛔ STOP on hover
+cRowEl.addEventListener('mouseenter', () => {
+    clearInterval(cAutoInterval);
+});
+
+// ▶️ RESUME on leave
+cRowEl.addEventListener('mouseleave', () => {
+    cResetAuto();
+});
+
             // Click side circles to navigate
             el.addEventListener('click', () => {
                 const pos = cGetPos(i);
@@ -1937,8 +1976,8 @@
             icon: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/location.png",
             iconWidth: "40px",
             iconHeight: "40px",
-            activeWidth: "70px",
-            activeHeight: "70px"
+            activeWidth: "140px",
+            activeHeight: "100px"
         },
         {
             id: 1,
@@ -1949,8 +1988,8 @@
             icon: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/temple.png",
             iconWidth: "40px",
             iconHeight: "40px",
-            activeWidth: "70px",
-            activeHeight: "70px"
+            activeWidth: "140px",
+            activeHeight: "140px"
         },
         {
             id: 2,
@@ -1961,8 +2000,8 @@
             icon: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/factory.png",
             iconWidth: "40px",
             iconHeight: "40px",
-            activeWidth: "70px",
-            activeHeight: "70px"
+            activeWidth: "140px",
+            activeHeight: "140px"
         },
         {
             id: 3,
@@ -1973,8 +2012,8 @@
             icon: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/resort.png",
             iconWidth: "40px",
             iconHeight: "40px",
-            activeWidth: "70px",
-            activeHeight: "70px"
+            activeWidth: "140px",
+            activeHeight: "140px"
         },
         {
             id: 4,
@@ -1985,8 +2024,8 @@
             icon: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/temple.png",
             iconWidth: "40px",
             iconHeight: "40px",
-            activeWidth: "70px",
-            activeHeight: "70px"
+            activeWidth: "140px",
+            activeHeight: "140px"
         },
         {
             id: 5,
@@ -1997,8 +2036,8 @@
             icon: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/factory.png",
             iconWidth: "40px",
             iconHeight: "40px",
-            activeWidth: "70px",
-            activeHeight: "70px"
+            activeWidth: "140px",
+            activeHeight: "140px"
         }
     ];
 
