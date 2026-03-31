@@ -1077,6 +1077,41 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
+        /* Initial hidden state (like premium slider) */
+.adv-item {
+    opacity: 0;
+    transform: translateX(120px);
+    filter: blur(0px);
+    transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.8s ease;
+}
+
+/* Stagger animation when active */
+.ui-slide.active .adv-item {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+}
+
+/* Stagger delays (THIS is the magic 🔥) */
+.ui-slide.active .adv-item:nth-child(1) { transition-delay: 0.5s; }
+.ui-slide.active .adv-item:nth-child(2) { transition-delay: 0.85s; }
+.ui-slide.active .adv-item:nth-child(3) { transition-delay: 1.0s; }
+.ui-slide.active .adv-item:nth-child(4) { transition-delay: 1.3s; }
+
+/* When slide is leaving */
+.ui-slide.prev .adv-item {
+    opacity: 0 !important;
+    transform: translateX(120px) !important;
+    filter: blur(10px) !important;
+    transition: 0.4s ease !important;
+}
+.adv-item:hover {
+    transform: translateX(-8px) scale(1.02);
+}
+
         .adv-item h4 {
             font-size: 15px;
             font-weight: 600;
@@ -1258,6 +1293,18 @@
             color: white;
         }
 
+         /* MAP section */
+
+        .map{
+        height: 100vh;
+        }
+
+        .map img {
+        height: 100vh;
+        width: 100vw;
+        }
+
+
 
     </style>
 </head>
@@ -1414,6 +1461,11 @@
             <div class="strip-title">200+ PLOTS</div>
         </div>
     </div>
+</section>
+
+<!-- MAP SECTION -->
+<section class="map">
+    <img src="https://raw.githubusercontent.com/vatsalvarma/Greensiri-Contact/refs/heads/main/map.2.png">
 </section>
 
 <!-- AMENITIES SECTION -->
