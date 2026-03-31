@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>GreenSiri</title>
 
     <style>
@@ -1172,8 +1172,8 @@
         }
 
         .footer-logo {
-            width: 120px; /* Placeholder width for logo */
-            margin-bottom: 10px;
+            width: 150px;
+            height: auto;
             filter: brightness(0) invert(1);
         }
 
@@ -1211,7 +1211,6 @@
             letter-spacing: 1px;
             cursor: pointer;
             border-radius: 30px;
-            border-radius: 30px;
             transition: 0.3s;
         }
 
@@ -1235,11 +1234,11 @@
         }
 
        .footer-social-icons {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 per row */
-    gap: 10px;
-    max-width: 90px; /* controls total width (adjust if needed) */
-}
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 90px;
+        }
 
         .footer-social-icons a {
             display: flex;
@@ -1258,11 +1257,6 @@
             border-color: white;
             color: white;
         }
-
-        .footer-logo {
-    width: 150px;   /* try this */
-    height: auto;
-}
 
 
     </style>
@@ -1524,7 +1518,6 @@
     </div>
 </section>
 
-<!-- Footer -->
 <!-- FOOTER -->
 <footer>
     <div class="footer-grid">
@@ -1544,7 +1537,6 @@
         </div>
         <div class="footer-col">
             <div style="size:24px; font-weight: 500; display:flex; align-items:center;">
-                <!-- User logo placeholder -->
                 <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Asset%2011X.png" class="footer-logo">
             </div>
             <p style="font-size:9px; color:#666; margin-top:5px; letter-spacing:1px; font-weight:500;">PATH FOR LUXURY FARMHOUSE</p>
@@ -1778,11 +1770,11 @@ function startAutoSlide() {
 const slider = document.querySelector(".card-slider");
 
 slider.addEventListener("mouseenter", () => {
-    stopAutoSlide();   // ⛔ STOP on hover
+    stopAutoSlide();
 });
 
 slider.addEventListener("mouseleave", () => {
-    startAutoSlide();  // ▶️ RESUME after hover
+    startAutoSlide();
 });
 
 function stopAutoSlide() {
@@ -1790,6 +1782,7 @@ function stopAutoSlide() {
 }
 
     updateSlider();
+    startAutoSlide();
 
     /* ================================================
        INVESTMENT CIRCLES SECTION
@@ -1804,12 +1797,12 @@ function stopAutoSlide() {
     ];
 
     const CN = circleData.length;
-    const CD = 200; // center diameter px
-    const SD = 160; // side diameter px
-    const GAP = 40; // adjust spacing
-    const DIST = CD / 2 + SD / 2 + GAP; // edge-to-edge offset = 215px
+    const CD = 200;
+    const SD = 160;
+    const GAP = 40;
+    const DIST = CD / 2 + SD / 2 + GAP;
 
-    let cActive = 1; // MONTHLY starts at center
+    let cActive = 1;
     let cAutoInterval;
 
     const cRowEl  = document.getElementById('circles-row');
@@ -1883,7 +1876,6 @@ function stopAutoSlide() {
             label.style.opacity      = lOpacity;
         });
 
-        // Animate description
         cDescEl.style.opacity = '0';
         setTimeout(() => {
             cDescEl.textContent   = circleData[cActive].bottom;
@@ -1914,17 +1906,6 @@ function stopAutoSlide() {
             const label = el.querySelector('.c-label');
             cItems.push({ el, shape, label });
 
-             // ⛔ STOP on hover
-cRowEl.addEventListener('mouseenter', () => {
-    clearInterval(cAutoInterval);
-});
-
-// ▶️ RESUME on leave
-cRowEl.addEventListener('mouseleave', () => {
-    cResetAuto();
-});
-
-            // Click side circles to navigate
             el.addEventListener('click', () => {
                 const pos = cGetPos(i);
                 if (pos === 'left')  { cNavigate(-1); cResetAuto(); }
@@ -1932,7 +1913,14 @@ cRowEl.addEventListener('mouseleave', () => {
             });
         });
 
-        // Drag / swipe
+        cRowEl.addEventListener('mouseenter', () => {
+            clearInterval(cAutoInterval);
+        });
+
+        cRowEl.addEventListener('mouseleave', () => {
+            cResetAuto();
+        });
+
         let dragStart = 0, isDragging = false, hasMoved = false;
 
         cRowEl.addEventListener('mousedown', e => {
@@ -2076,7 +2064,6 @@ cRowEl.addEventListener('mouseleave', () => {
             const isActive = i === wheelActiveIndex;
             node.classList.toggle('active', isActive);
 
-            // Update image size based on active state
             const img = node.querySelector('img');
             if (isActive) {
                 img.style.width = wheelData[i].activeWidth;
@@ -2127,7 +2114,7 @@ cRowEl.addEventListener('mouseleave', () => {
 
 
    /* ================================================
-       FARMHOUSES SLIDER  —  THE FIX IS HERE
+       FARMHOUSES SLIDER
        ================================================ */
     const slidesData = [
         {
@@ -2211,27 +2198,23 @@ cRowEl.addEventListener('mouseleave', () => {
 
     function initSlider() {
         slidesData.forEach((slide, i) => {
-            // BG
             const bgDiv = document.createElement('div');
             bgDiv.className = `bg-slide ${i === 0 ? 'active' : ''}`;
             bgDiv.style.backgroundImage = `url(${slide.bg})`;
             bgDiv.appendChild(Object.assign(document.createElement('div'), { className: 'bg-overlay' }));
             layerBg.appendChild(bgDiv);
 
-            // TEXT
             const textDiv = document.createElement('div');
             textDiv.className = `text-slide ${i === 0 ? 'active' : ''}`;
             textDiv.innerHTML = `<div class="hero-title"><span class="filled">${slide.heroText1}</span><span class="outlined">${slide.heroText2}</span></div>`;
             layerText.appendChild(textDiv);
 
-            // PNG
             const pngImg = document.createElement('img');
             pngImg.className = `png-slide ${i === 0 ? 'active' : ''}`;
             pngImg.src = slide.png;
             pngImg.alt = slide.heroText1;
             layerPng.appendChild(pngImg);
 
-            // UI
             const cardsHtml = slide.cards.map(card => `
                 <div class="adv-item">
                     <h4>${card.title}</h4>
@@ -2274,21 +2257,18 @@ cRowEl.addEventListener('mouseleave', () => {
         const pngSlides  = document.querySelectorAll('.png-slide');
         const uiSlides   = document.querySelectorAll('.ui-slide');
 
-        // Mark current as exiting
         bgSlides[currIndex].classList.replace('active', 'prev');
         textSlides[currIndex].classList.replace('active', 'prev');
         pngSlides[currIndex].classList.replace('active', 'prev');
         uiSlides[currIndex].classList.replace('active', 'prev');
 
-        // Prepare incoming (clear any prev state)
         bgSlides[nextIndex].classList.remove('prev');
         textSlides[nextIndex].classList.remove('prev');
         pngSlides[nextIndex].classList.remove('prev');
         uiSlides[nextIndex].classList.remove('prev');
 
-        void bgSlides[nextIndex].offsetWidth; // force reflow
+        void bgSlides[nextIndex].offsetWidth;
 
-        // Activate incoming
         bgSlides[nextIndex].classList.add('active');
         textSlides[nextIndex].classList.add('active');
         pngSlides[nextIndex].classList.add('active');
@@ -2297,32 +2277,22 @@ cRowEl.addEventListener('mouseleave', () => {
         const prevIndex = currIndex;
         currIndex = nextIndex;
 
-        // ── THE FIX ──────────────────────────────────────────────────────────
-        // After the animation finishes, reset the exited slide back to standby.
-        // We MUST suppress the transition during this reset, otherwise the slide
-        // visibly flies from translateX(-100%) back to translateX(100%) across
-        // the screen in front of the viewer.
         setTimeout(() => {
             const toReset = [bgSlides[prevIndex], textSlides[prevIndex], pngSlides[prevIndex], uiSlides[prevIndex]];
 
-            // 1. Kill transition so the position change is instant & invisible
             toReset.forEach(el => el.style.transition = 'none');
 
-            // 2. Remove 'prev' → CSS snaps them to translateX(100%) off-screen right
             bgSlides[prevIndex].classList.remove('prev');
             textSlides[prevIndex].classList.remove('prev');
             pngSlides[prevIndex].classList.remove('prev');
             uiSlides[prevIndex].classList.remove('prev');
 
-            // 3. Force reflow so the browser registers the new position
             void bgSlides[prevIndex].offsetWidth;
 
-            // 4. Restore transitions so they animate normally next time
             toReset.forEach(el => el.style.transition = '');
 
             isAnimating = false;
         }, 1800);
-        // ─────────────────────────────────────────────────────────────────────
     }
 
     function bindControls() {
