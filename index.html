@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>GreenSiri</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Greensiri%20Logo%20Fevicon%20Green.png">
+    <title>tarnifarms</title>
 
     <style>
         * {
@@ -1373,21 +1375,16 @@
         }
 
         /* --- FOOTER --- */
-        footer {
+         footer {
             background-color: #0b0b0b;
             color: white;
             padding: 60px 8%;
-            /* footer doesn't need to be 100vh — snap still works */
             min-height: 30vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
         .footer-grid {
             display: flex;
             justify-content: space-between;
-            align-items: stretch;
             flex-wrap: wrap;
             padding-bottom: 40px;
         }
@@ -1397,12 +1394,21 @@
             min-width: 180px;
             padding: 15px 40px;
             border-right: 2px solid #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .footer-col:first-child {
             padding-left: 0;
-            min-width: max-content;
             flex: 1.5;
+        }
+
+        .footer-col:nth-child(1),
+        .footer-col:nth-child(2) {
+            align-items: flex-start;
+            text-align: left;
         }
 
         .footer-col:last-child {
@@ -1410,71 +1416,58 @@
             padding-right: 0;
         }
 
-        .footer-col:nth-child(2) {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .footer-col:nth-child(3) {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
+        .footer-bold {
+            font-size: 11px;
+            font-weight: 600;
         }
 
         .footer-text {
             font-size: 11px;
-            color: #fff;
             line-height: 1.6;
             margin-top: 10px;
             white-space: nowrap;
         }
 
-        .footer-bold {
-            font-size: 11px;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 5px;
-            display: block;
-        }
-
         .footer-contact-item {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
             font-size: 11px;
-            color: hsl(0, 0%, 100%);
+            margin-bottom: 10px;
         }
 
         .footer-contact-item i {
-            display: flex;
-            align-items: center;
-            justify-content: center;
             width: 25px;
             height: 25px;
             border: 1px solid #fff;
             border-radius: 50%;
-            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
         }
 
         .footer-logo {
             width: 150px;
-            height: auto;
             filter: brightness(0) invert(1);
         }
 
-        .footer-subscribe h5 {
+        .footer-tagline {
+            font-size: 9px;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        .footer-subscribe h5,
+        .footer-social h5 {
             font-size: 11px;
-            font-weight: 600;
-            color: #fff;
             margin-bottom: 10px;
             text-transform: uppercase;
         }
 
-        .footer-col.footer-subscribe {
-            min-width: max-content;
-            flex: 1.5;
+        .footer-social h5 {
+            font-size: 13px;
         }
 
         .subscribe-form {
@@ -1484,113 +1477,83 @@
         }
 
         .subscribe-form input {
-            background-color: transparent;
+            background: transparent;
             border: 1px solid #fff;
             padding: 8px 12px;
             color: white;
             font-size: 11px;
             border-radius: 4px;
-            outline: none;
-        }
-
-        .subscribe-form input::placeholder {
-            color: #fff;
-            opacity: 1;
         }
 
         .subscribe-form button {
-            background-color: transparent;
-            color: white;
+            background: transparent;
             border: 1px solid #fff;
-            padding: 8px 12px;
+            padding: 6px;
             font-size: 10px;
             font-weight: 600;
-            letter-spacing: 1px;
+            color: #fff;
             cursor: pointer;
             border-radius: 30px;
             transition: 0.3s;
+            width: 100%;
         }
 
         .subscribe-form button:hover {
-            background-color: white;
-            color: black;
+            background: #fff;
+            color: #000;
         }
 
         .subscribe-note {
-            font-size: 9px;
+            font-size: 8px;
             color: #fff;
             margin-top: 5px;
             white-space: nowrap;
         }
 
-        .footer-social h5 {
-            font-size: 11px;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
         .footer-social-icons {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 12px;
         }
 
         .footer-social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
             width: 36px;
             height: 36px;
             border: 1px solid #fff;
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #fff;
-            font-size: 15px;
-            transition: 0.3s;
+            text-decoration: none;
         }
 
         .footer-social-icons a:hover {
-            background-color: #fff;
-            color: #0b0b0b;
+            background: #fff;
+            color: #000;
         }
 
         .footer-bottom {
-            margin-top: 50px;
-            padding-top: 25px;
-            border-top: 2px solid rgba(255, 255, 255, 0.4);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            text-align: center;
             font-size: 11px;
-            color: rgba(255, 255, 255, 0.6);
-            width: 100%;
-        }
-
-        .footer-bottom p {
-            margin: 0;
-            letter-spacing: 1.5px;
-            font-weight: 300;
         }
 
         .footer-bottom a {
             color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            transition: color 0.3s;
         }
 
         .footer-bottom a:hover {
             color: #fff;
         }
 
-        /* MAP section */
-        .map {
-            height: 100vh;
-        }
-
-        .map img {
-            height: 100vh;
-            width: 100vw;
+        .highlight {
+            color: #fff;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -2103,10 +2066,14 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <span class="footer-bold">GREENSIRI INDIA LLP</span>
-                <p class="footer-text">130/2, 3RD FLOOR, OMKARA BUILDING<br>INTERNATIONAL AIRPORT ROAD, NEHRU
-                    NAGAR<br>YELAHANKA, BENGALURU - 64</p>
+                <span class="footer-bold">GREENSIRI INFRA LLP</span>
+                <p class="footer-text">
+                    130/2, 3RD FLOOR, OMKARA BUILDING,<br>
+                    INTERNATIONAL AIRPORT ROAD, NEHRU NAGAR,<br>
+                    YELAHANKA, BENGALURU - 64
+                </p>
             </div>
+
             <div class="footer-col">
                 <div class="footer-contact-item">
                     <i class="fa-solid fa-phone"></i>
@@ -2117,22 +2084,27 @@
                     contact@greensiri.in
                 </div>
             </div>
+
             <div class="footer-col">
-                <div style="size:24px; font-weight: 500; display:flex; align-items:center;">
+                <div>
                     <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Asset%2011X.png"
                          class="footer-logo">
                 </div>
-                <p style="font-size:9px; color:#fff; margin-top:5px; letter-spacing:1px; font-weight:500;">PATH FOR
-                    LUXURY FARMHOUSE</p>
+                <p class="footer-tagline">
+                </p>
             </div>
+
             <div class="footer-col footer-subscribe">
                 <h5>DO YOU HAVE ANY QUERY?</h5>
                 <form class="subscribe-form">
-                    <input type="email" placeholder="Email@greenjsiri.com">
+                    <input type="email" placeholder="Email@greensiri.com">
                     <button type="button">SUBSCRIBE</button>
                 </form>
-                <div class="subscribe-note">PLEASE FILL THIS TO SUBSCRIBE OUR UPDATES</div>
+                <div class="subscribe-note">
+                    PLEASE FEEL FREE TO SHARE ANY QUERIES YOU HAVE
+                </div>
             </div>
+
             <div class="footer-col footer-social">
                 <h5>SOCIAL MEDIA LINKS</h5>
                 <div class="footer-social-icons">
@@ -2147,10 +2119,14 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&#169; Copyright 2026. <span style="color: #fff; font-weight: 500;">GREENSIRI PROPERTIES</span>. All
-                Rights Reserved <span style="margin: 0 10px;">|</span> <a href="#">Privacy Policy</a> <span
-                        style="margin: 0 10px;">|</span> Website Design by <span
-                        style="color: #fff; font-weight: 500;">PRIZMABRIXX</span></p>
+            <p>
+                © Copyright 2026
+                <span class="highlight">GREENSIRI PROPERTIES</span>.
+                All Rights Reserved |
+                <a href="#">Privacy Policy</a> |
+                Website Design by
+                <span class="highlight">PRIZMABRIXX</span>
+            </p>
         </div>
     </footer>
 
