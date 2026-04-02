@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -576,6 +577,21 @@
             transform: translate(-50%, -60%);
             font-size: clamp(14px, 1.5vw, 24px);
         }
+
+        .map {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.map iframe {
+
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
 
         /* ==================== AMENITIES SECTION ==================== */
         :root {
@@ -1743,7 +1759,11 @@
 
     <!-- MAP SECTION -->
     <section class="map">
-        <img src="https://raw.githubusercontent.com/vatsalvarma/Greensiri-Contact/refs/heads/main/map.2.png">
+        <iframe
+                src="https://demo.prizmabrixx.in/"
+                allowfullscreen
+                loading="lazy">
+        </iframe>
     </section>
 
     <!-- AMENITIES SECTION -->
@@ -2592,7 +2612,7 @@
             activeWidth: "140px", activeHeight: "140px"
         },
         {
-            id: 3, 
+            id: 3,
             title: "RESORT",
             name: "RESORT STAY PLACE",
             tag: "GLOBAL ACCESS = PRICE SURGE",
