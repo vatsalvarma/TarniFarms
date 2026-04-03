@@ -4,6 +4,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1575,10 +1576,240 @@
             color: #fff;
             font-weight: 500;
         }
+
+            /* ================= SOCIAL FLOATING ================= */
+
+        /* ===============================================================
+           ENHANCED SOCIAL FLOATING SIDEBAR WITH INTERACTIVE SECTIONS
+           ============================================================ */
+
+        /*
+         * MAIN CONTAINER
+         * - Fixed position on right side
+         * - Stays above content but below nav (z-index: 999)
+         * - Stops before footer area
+         */
+        .social-floating {
+            position: fixed;
+            right: 27px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 99;
+            /* CUSTOMIZE: Adjust top position if needed */
+            /* CUSTOMIZE: Change right: 0 to add spacing from edge */
+        }
+
+        /*
+         * PNG BACKGROUND IMAGE CONTAINER
+         * - Contains the full vertical social icons PNG
+         * - Height and width can be adjusted based on your PNG dimensions
+         */
+        .social-bg-image {
+            position: relative;
+            width: 50px;  /* CUSTOMIZE: Adjust based on PNG width */
+            height: 450px; /* CUSTOMIZE: Adjust based on PNG height */
+            background-image: url("https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Side-line-contact2.png.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* CUSTOMIZE: Change PNG URL above to your image */
+        }
+
+        /*
+         * INDIVIDUAL CLICKABLE SECTIONS
+         * - Each section is a clickable overlay on part of the PNG
+         * - Positioned absolutely within the container
+         * - Invisible by default (transparent)
+         */
+        .social-section {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            /* CUSTOMIZE: Add background color to see section boundaries during setup */
+            /* background: rgba(255, 0, 0, 0.2); */
+        }
+
+        /* Hover effect - slight scale */
+        .social-section:hover {
+            transform: scale(1.05);
+        }
+
+        /*
+         * HOVER TEXT LABEL
+         * - Hidden by default (opacity 0, translateX)
+         * - Slides in from left on hover
+         * - Positioned to the left of the icon
+         */
+        .social-label {
+            position: absolute;
+            right: 60px; /* CUSTOMIZE: Adjust distance from icon */
+            top: 50%;
+            transform: translateY(-50%) translateX(20px);
+
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            /* CUSTOMIZE: Change colors, padding, font size */
+        }
+
+        /* Arrow pointing to icon */
+        .social-label::after {
+            content: "";
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-left: 8px solid rgba(0, 0, 0, 0.85);
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            /* CUSTOMIZE: Change arrow color to match label background */
+        }
+
+        /* Show label on hover */
+        .social-section:hover .social-label {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+        /*
+         * SECTION POSITIONS
+         * - Adjust these values based on where each icon is in your PNG
+         * - top: distance from top of container
+         * - height: height of clickable area
+         */
+
+        /* Section 1: "ENQUIRY NOW" text at top */
+        .social-enquiry {
+            top: 50%;;
+            height: 25%; /* CUSTOMIZE: Adjust based on PNG layout */
+        }
+
+        /* Section 2: WhatsApp icon */
+        .social-whatsapp {
+            top: 82%; /* CUSTOMIZE: Starts where enquiry ends */
+            height: 10%; /* CUSTOMIZE: Height of WhatsApp section */
+
+        }
+
+        /* Section 3: Call/Phone icon */
+        .social-call {
+            top: 73%; /* CUSTOMIZE: Starts where WhatsApp ends */
+            height: 10%; /* CUSTOMIZE: Height of call section */
+
+        }
+
+        /* Section 4: Bottom contact icon */
+        .social-contact {
+            top: 89%; /* CUSTOMIZE: Starts where call ends */
+            height: 15%; /* CUSTOMIZE: Height of contact section */
+
+        }
+
+        /*
+         * RESPONSIVE ADJUSTMENTS
+         * - Hide or adjust on mobile devices
+         */
+        @media (max-width: 768px) {
+            .social-floating {
+                right: 5px; /* CUSTOMIZE: Adjust mobile positioning */
+                /* Or hide completely: display: none; */
+            }
+
+            .social-bg-image {
+                width: 40px; /* CUSTOMIZE: Smaller on mobile */
+                height: 360px; /* CUSTOMIZE: Proportional height */
+            }
+
+            .social-label {
+                font-size: 11px; /* CUSTOMIZE: Smaller text on mobile */
+                padding: 6px 12px;
+                right: 50px;
+            }
+        }
+
+        /* Hide social bar when footer is in view */
+        body.footer-visible .social-floating {
+            opacity: 1;
+            pointer-events: none;
+        }
     </style>
 </head>
 
 <body>
+
+<div class="social-floating">
+    <div class="social-bg-image">
+
+        <!--
+        ══════════════════════════════════════════════════════
+        SECTION 1: ENQUIRY NOW
+        ══════════════════════════════════════════════════════
+        CUSTOMIZE:
+        - Change href to your enquiry page URL
+        - Adjust top/height values to match PNG layout
+        - Modify label text
+        -->
+        <a href="https://vatsalvarma.github.io/Greensiri-Contact/"
+           class="social-section social-enquiry"
+           target="_blank">
+            <div class="social-label">ENQUIRY NOW</div>
+        </a>
+
+        <!--
+        ══════════════════════════════════════════════════════
+        SECTION 2: CALL
+        ══════════════════════════════════════════════════════
+        CUSTOMIZE:
+        - Change phone number in href (9119925552)
+        - This opens phone dialer on mobile/desktop
+        - Adjust position to match call icon in PNG
+        -->
+        <a href="tel:+919119925552"
+           class="social-section social-call">
+            <div class="social-label">CALL NOW</div>
+        </a>
+
+        <!--
+       ══════════════════════════════════════════════════════
+       SECTION 3: WHATSAPP
+       ══════════════════════════════════════════════════════
+       CUSTOMIZE:
+       - Change phone number in href (919999999999)
+       - Modify pre-filled message after &text=
+       - Adjust position to match WhatsApp icon in PNG
+       -->
+        <a href="https://wa.me/919999999999?text=Hello%20Greensiri,%20I'm%20interested%20in%20your%20properties"
+           class="social-section social-whatsapp"
+           target="_blank">
+            <div class="social-label">WHATSAPP</div>
+        </a>
+
+        <!--
+        ══════════════════════════════════════════════════════
+        SECTION 4: CONTACT US
+        ══════════════════════════════════════════════════════
+        CUSTOMIZE:
+        - Change href to your contact page URL
+        - Adjust position to match bottom icon in PNG
+        - Can also link to email: mailto:contact@greensiri.in
+        -->
+        <a href="https://vatsalvarma.github.io/Greensiri-Contact/"
+           class="social-section social-contact"
+           target="_blank">
+            <div class="social-label">CHAT-BOT</div>
+        </a>
+
+    </div>
+</div>
 
 <!-- ===================== SNAP CONTAINER — wraps every snap section ===================== -->
 <div id="snap-container">
