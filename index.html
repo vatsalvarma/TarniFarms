@@ -2,6 +2,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +36,7 @@
             overflow-y: scroll;
             overflow-x: hidden;
             scroll-snap-type: y mandatory;
-            /* intentionally no scroll-behavior:smooth — browser handles it via snap */
+            scroll-behavior: smooth;
         }
 
         /* Locking class: disables scroll while theme slider is active */
@@ -2174,6 +2175,8 @@
         let isAnimating = false;
         let isScrollLocked = false;
         let hasEnteredSection = false;
+        let entryGuard = false;
+        let entryGuardTimer;
 
         // ── CHANGED: scroll snapContainer, not window ────────────────────
         function snapToSlider() {
@@ -2242,17 +2245,43 @@
             if (!isScrollLocked) {
                 isScrollLocked = true;
                 snapContainer.classList.add('snap-locked');
+                entryGuard = true;
+                clearTimeout(entryGuardTimer);
+                entryGuardTimer = setTimeout(() => {
+                    entryGuard = false;
+                }, 450);
+                // glide into the slider start so entry feels intentional
+                snapContainer.scrollTo({
+                    top: sliderWrapper.offsetTop,
+                    behavior: 'smooth'
+                });
             }
         }
 
         // ── CHANGED: unlock = remove class, nudge snapContainer ──────────
-        function unlockScroll(direction = 1) {
+        function unlockScroll(direction = 1, autoScroll = true) {
             if (isScrollLocked) {
                 isScrollLocked = false;
                 snapContainer.classList.remove('snap-locked');
-                // tiny nudge so the snap engine re-evaluates position
-                snapContainer.scrollBy({ top: 2 * direction, behavior: 'instant' });
+                entryGuard = false;
+                clearTimeout(entryGuardTimer);
+                if (autoScroll) {
+                    smoothExit(direction);
+                } else {
+                    snapContainer.scrollBy({ top: 2 * direction, behavior: 'smooth' });
+                }
             }
+        }
+
+        function smoothExit(direction = 1) {
+            const sectionHeight = snapContainer.clientHeight;
+            const target = sliderWrapper.offsetTop + sectionHeight * direction;
+            const maxScroll = snapContainer.scrollHeight - sectionHeight;
+            const clamped = Math.max(0, Math.min(target, maxScroll));
+            snapContainer.scrollTo({
+                top: clamped,
+                behavior: 'smooth'
+            });
         }
 
         const observerOptions = {
@@ -2290,7 +2319,7 @@
                 if (!entry.isIntersecting) {
                     hasEnteredSection = false;
                     // ensure lock is released if user scrolled away externally
-                    if (isScrollLocked) unlockScroll(1);
+                    if (isScrollLocked) unlockScroll(1, false);
                 }
             });
         }, {
@@ -2304,6 +2333,11 @@
 
         function handleWheel(e) {
             if (!isScrollLocked || isAnimating) return;
+
+            if (entryGuard) {
+                e.preventDefault();
+                return;
+            }
 
             const currentTime = Date.now();
             if (currentTime - lastScrollTime < scrollThrottle) {
@@ -2347,6 +2381,7 @@
 
         snapContainer.addEventListener('touchend', (e) => {
             if (!isScrollLocked || isAnimating) return;
+            if (entryGuard) return;
 
             touchEndY = e.changedTouches[0].screenY;
             const diff = touchStartY - touchEndY;
@@ -2858,7 +2893,7 @@
             </div>`;
             layerUi.appendChild(uiDiv);
         });
-
+        
         bindControls();
     }
 
