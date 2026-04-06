@@ -6,6 +6,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1396,6 +1397,255 @@
             text-transform: uppercase;
         }
 
+         /* ==================== STRIP GALLERY SECTION 2 ==================== */
+        .strip-heading2 {
+            position: absolute;
+            top: 20px;
+            left: 140px;
+            z-index: 5;
+        }
+
+        .strip-section2 {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            background-image: url("https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?q=80&w=1378&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            background-size: 100% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .strip-section::before {
+            content: "";
+            position: absolute;
+            z-index: 1;
+        }
+
+        .strip-gallery2 {
+            display: flex;
+            gap: clamp(10px, 1.4vw, 24px);
+            position: relative;
+            z-index: 2;
+            transform: translateX(0px);
+        }
+
+        .strip-card2 {
+            width: clamp(200px, 21vw, 200px);
+            height: clamp(400px, 65vh, 700px);
+            overflow: hidden;
+            border-radius: 1px;
+            position: relative;
+            transition: 0.6s ease;
+        }
+
+        .strip-card2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.0);
+            transition: 4s ease;
+        }
+
+        .strip-card2:nth-child(odd) {
+            animation: stripFloatUp 6s ease-in-out infinite;
+        }
+
+        .strip-card2:nth-child(even) {
+            animation: stripFloatDown 6s ease-in-out infinite;
+        }
+
+        @keyframes stripFloatUp {
+
+            0%,
+            100% {
+                transform: translateY(-20px);
+            }
+
+            50% {
+                transform: translateY(25px);
+            }
+        }
+
+        @keyframes stripFloatDown {
+
+            0%,
+            100% {
+                transform: translateY(25px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .strip-card2:hover {
+            width: clamp(150px, 18vw, 300px);
+        }
+
+        .strip-card2:hover img {
+            transform: scale(1);
+        }
+
+        .strip-title2 {
+            position: absolute;
+            top: 90%;
+            left: 150px;
+            white-space: nowrap;
+            transform: translateY(-50%) rotate(-90deg);
+            transform-origin: left center;
+            color: white;
+            font-size: clamp(42px, 9.2vw, 42px);
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-align: center;
+            z-index: 3;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.9);
+            transition: 0.4s;
+        }
+
+        .strip-card2:hover .strip-title {
+            transform: translate(-50%, -60%);
+            font-size: clamp(14px, 1.5vw, 24px);
+        }
+
+        /----map------/
+
+        .map {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.map iframe {
+
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+   /* ================= HAPPY FACES — FIX ================= */
+        .faces-section {
+            height: 100vh;
+            position: relative;
+            background: url("https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/hfbg.png") no-repeat center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding-top: clamp(80px, 12vh, 160px);
+            overflow: hidden;
+        }
+
+        .faces-title {
+            color: white;
+            font-size: clamp(28px, 4vw, 64px);
+            font-weight: 800;
+            text-align: right;
+            padding-right: clamp(30px, 5vw, 100px);
+        }
+
+        .faces-text {
+            color: #ddd;
+            max-width: clamp(300px, 45vw, 750px);
+            margin-top: clamp(8px, 1.2vh, 20px);
+            line-height: 1.7;
+            font-size: clamp(12px, 1.1vw, 18px);
+            text-align: right;
+            padding-right: clamp(30px, 5vw, 100px);
+        }
+
+        .faces-slider {
+            position: absolute;
+            bottom: clamp(120px, 29vh, 260px);
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .faces-track {
+            display: flex;
+            gap: clamp(14px, 2vw, 36px);
+            width: max-content;
+            will-change: transform;
+        }
+
+        .faces-slider:hover .faces-track { animation-play-state: paused; }
+
+        .face-card {
+            width: clamp(160px, 18vw, 300px);
+            height: clamp(140px, 20vh, 260px);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .face-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.9s ease;
+        }
+
+        .face-card:hover img { transform: scale(1.2); }
+
+        .reverse {
+            bottom: clamp(20px, 4vh, 60px);
+        }
+
+        .reverse-track {
+            display: flex;
+            gap: clamp(14px, 2vw, 36px);
+            width: max-content;
+            flex-shrink: 0;
+            will-change: transform;
+        }
+
+        .reverse:hover .reverse-track { animation-play-state: paused; }
+
+        /* ================= VIDEO POPUP ================= */
+        .video-popup {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.7s ease;
+        }
+
+        .video-popup.active { opacity: 1; pointer-events: auto; }
+
+        .video-container {
+            width: 70%;
+            max-width: 900px;
+            aspect-ratio: 16/9;
+            position: relative;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .video-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
         /* --- FOOTER --- */
          footer {
             background-color: #0b0b0b;
@@ -2465,6 +2715,106 @@
         </div>
     </section>
 
+    <!-- STRIP GALLERY SECTION -->
+    <section class="strip-section2" id="ggallery">
+        <div class="vmc-title strip-heading"></div>
+        <div class="strip-gallery2">
+            <div class="strip-card2" onclick="goProject('https://vatsalvarma.github.io/Gallery-greensiri/')">
+                <img
+                        src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Portrati%201.png">
+                <div class="strip-title2">FARMS FAMILY</div>
+            </div>
+            <div class="strip-card2" onclick="goProject('https://vatsalvarma.github.io/Gallery-greensiri/')">
+                <img
+                        src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Portrati%202.png">
+                <div class="strip-title2">FARMS CELEBRATION</div>
+            </div>
+            <div class="strip-card2" onclick="goProject('https://vatsalvarma.github.io/Gallery-greensiri/')">
+                <img
+                        src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Portrati%203.png">
+                <div class="strip-title2">TARNIFARMS</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= HAPPY FACES ================= -->
+    <section class="faces-section" id="happy">
+
+        <h1 class="faces-title">Happy Faces of Greensiri</h1>
+        <p class="faces-text">Our journey is measured not only in projects but in the smiles of families who found their dream spaces with us. Every success story reflects our promise of trust and growth.</p>
+
+        <!-- FORWARD SLIDER -->
+        <div class="faces-slider">
+            <div class="faces-track" id="forwardTrack">
+                <!-- SET A: 4 cards -->
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=RWqNzu-ZthU')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=__kqGVHxFVs')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Rainwater%20Harvesting.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=jlSrhTs60SI')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Model%20house.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=Muh0k3u3aD0')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Sankranti%202026.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=HB2vuYTQW1Y')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=iVmhbveneeM')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=cL1UiNU5-Jk')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration%20at%20corporate%20office.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=83h_KVBSgWg')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20tarini%20farm%20development.jpg"></div>
+
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=l0i45Get_Oo')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Oxygen%20trees.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=CcaOL4s2clE')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Tarani%20serenity.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=VJs4N_Lynyo')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarani%20Farms%20Trailer.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ROwy2lWjQEI')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Independence%20day.jpg"></div>
+                <!-- SET B: duplicate -->
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=DLB622H_omc')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Way%20to%20greensiri%20corporate%20office.jpg"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=z8L3Kf52s4g')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Corporate%20office.jpg"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=FW9A2ceXncY')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Why%20invest%20in%20greensiri.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=25kWUS3ERT0')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20video.png"></div>
+
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=9gONxh0mC1g')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Vote%20for%20your%20future.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ASg6j-V1TkY')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20teaser.png"></div>
+                <div class="face-card" onclick="openVideo('https://youtu.be/ASg6j-V1TkY?si=TtXRM-fWAEECfQcN')"><img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/HF3foreground%203.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=F9yiUezyLuc')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Welcome%20to%20greensiri%20farmlands.png"></div>
+
+            </div>
+        </div>
+
+        <!-- REVERSE SLIDER -->
+        <div class="faces-slider reverse">
+            <div class="reverse-track" id="reverseTrack">
+                <!-- SET A -->
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=RWqNzu-ZthU')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=__kqGVHxFVs')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Rainwater%20Harvesting.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=jlSrhTs60SI')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Model%20house.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=Muh0k3u3aD0')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Sankranti%202026.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=HB2vuYTQW1Y')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=iVmhbveneeM')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=cL1UiNU5-Jk')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration%20at%20corporate%20office.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=83h_KVBSgWg')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20tarini%20farm%20development.jpg"></div>
+
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=l0i45Get_Oo')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Oxygen%20trees.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=CcaOL4s2clE')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Tarani%20serenity.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=VJs4N_Lynyo')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarani%20Farms%20Trailer.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ROwy2lWjQEI')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Independence%20day.jpg"></div>
+                <!-- SET B: duplicate -->
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=DLB622H_omc')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Way%20to%20greensiri%20corporate%20office.jpg"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=z8L3Kf52s4g')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Corporate%20office.jpg"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=FW9A2ceXncY')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Why%20invest%20in%20greensiri.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=25kWUS3ERT0')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20video.png"></div>
+
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=9gONxh0mC1g')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Vote%20for%20your%20future.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ASg6j-V1TkY')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20teaser.png"></div>
+                <div class="face-card" onclick="openVideo('https://youtu.be/ASg6j-V1TkY?si=TtXRM-fWAEECfQcN')"><img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/HF3foreground%203.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=F9yiUezyLuc')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Welcome%20to%20greensiri%20farmlands.png"></div>
+
+             </div>
+            </div>
+
+    </section>
+
+    <!-- VIDEO POPUP -->
+    <div class="video-popup" id="videoPopup">
+        <div class="video-container">
+            <div class="video-close" onclick="closeVideo()">✕</div>
+            <iframe id="videoFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
@@ -3114,12 +3464,13 @@
             infoTagline.textContent = activeData.tag;
             infoDesc.textContent = activeData.desc;
             dynamicInfo.classList.add('show');
-        }, 4000);
+        }, 220);
     }
 
     let wheelInterval;
     function startWheelInterval() {
-        wheelInterval = setInterval(() => rotateWheel('next'), 4000);
+        clearInterval(wheelInterval);
+        wheelInterval = setInterval(() => rotateWheel('next'), 4500);
     }
 
     function rotateWheel(direction) {
@@ -3429,6 +3780,80 @@
     }
 
     chatbotDragHandle?.addEventListener('pointerdown', handleDragStart);
+</script>
+
+<script>
+
+    /* ===== VIDEO POPUP ===== */
+  function openVideo(url) {
+      const popup = document.getElementById("videoPopup");
+      const frame = document.getElementById("videoFrame");
+      let embedUrl = url;
+      if (url.includes("watch?v=")) {
+          const videoId = url.split("watch?v=")[1].split("&")[0];
+          embedUrl = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+      }
+      frame.src = embedUrl;
+      popup.classList.add("active");
+  }
+
+  function closeVideo() {
+      document.getElementById("videoPopup").classList.remove("active");
+      document.getElementById("videoFrame").src = "";
+  }
+
+  function goProject(url)  { window.location.href = url; }
+  function openProject(url){ window.location.href = url; }
+  function openSite(url)   { window.location.href = url; }
+
+
+
+  function toggleMenu(){
+  document.querySelector(".nav-menu").classList.toggle("active");
+}
+
+function closeMenu(){
+  document.querySelector(".nav-menu").classList.remove("active");
+}
+
+// ================= HAPPY FACES MARQUEE =================
+function setupMarquee(trackId, speedPxPerFrame) {
+  const track = document.getElementById(trackId);
+  if (!track) return;
+  const container = track.parentElement;
+  const baseItems = Array.from(track.children);
+  const baseWidth = track.scrollWidth;
+  if (!baseWidth) return;
+
+  const neededClones = Math.max(1, Math.ceil((container.offsetWidth * 2) / baseWidth));
+  for (let i = 0; i < neededClones; i++) {
+    baseItems.forEach(node => track.appendChild(node.cloneNode(true)));
+  }
+
+  const resetDistance = baseWidth;
+  let offset = speedPxPerFrame > 0 ? -resetDistance : 0;
+  let paused = false;
+
+  container.addEventListener('mouseenter', () => { paused = true; });
+  container.addEventListener('mouseleave', () => { paused = false; });
+
+  function tick() {
+    if (!paused) {
+      offset += speedPxPerFrame;
+      if (speedPxPerFrame < 0 && offset <= -resetDistance) offset = 0;
+      if (speedPxPerFrame > 0 && offset >= 0) offset = -resetDistance;
+      track.style.transform = `translateX(${offset}px)`;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+}
+
+window.addEventListener('load', () => {
+  setupMarquee('forwardTrack', -0.8);
+  setupMarquee('reverseTrack', 0.8);
+});
 </script>
 
 </body>
