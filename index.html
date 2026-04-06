@@ -1429,7 +1429,7 @@
             gap: clamp(10px, 1.4vw, 24px);
             position: relative;
             z-index: 2;
-            transform: translateX(0px);
+            transform: translateX(150px);
         }
 
         .strip-card2 {
@@ -1511,6 +1511,30 @@
             font-size: clamp(14px, 1.5vw, 24px);
         }
 
+
+        .menu-card {
+            position: absolute;
+            left: clamp(40px, 8vw, 140px);
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+            line-height: 1.1;
+
+        }
+
+        .menu-card ul { list-style: none; }
+
+        .menu-card li {
+            color: white;
+            font-size: clamp(14px, 1.4vw, 24px);
+            margin: clamp(12px, 1.8vh, 26px) 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.9s ease, color 0.35s ease;
+        }
+
+        .menu-card li:hover { transform: translateY(-6px); color: #9cff9c; }
+
         /----map------/
 
         .map {
@@ -1577,7 +1601,7 @@
 
         .face-card {
             width: clamp(160px, 18vw, 300px);
-            height: clamp(140px, 20vh, 260px);
+            height: clamp(160px, 23vh, 270px);
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
@@ -1587,7 +1611,7 @@
         .face-card img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: ;
             transition: transform 0.9s ease;
         }
 
@@ -2722,18 +2746,26 @@
             <div class="strip-card2" onclick="goProject('https://vatsalvarma.github.io/Gallery-greensiri/')">
                 <img
                         src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Portrati%201.png">
-                <div class="strip-title2">FARMS FAMILY</div>
+                <div class="strip-title2">SHOT AT SITE</div>
             </div>
             <div class="strip-card2" onclick="goProject('https://vatsalvarma.github.io/Gallery-greensiri/')">
                 <img
                         src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Portrati%202.png">
-                <div class="strip-title2">FARMS CELEBRATION</div>
+                <div class="strip-title2">FARMS FAMILY</div>
             </div>
             <div class="strip-card2" onclick="goProject('https://vatsalvarma.github.io/Gallery-greensiri/')">
                 <img
                         src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Portrati%203.png">
-                <div class="strip-title2">TARNIFARMS</div>
+                <div class="strip-title2">FARMS CELEBRATION</div>
             </div>
+        </div>
+
+        <div class="menu-card">
+            <ul>
+                <li onclick="openSite('https://example.com/corporate')">SHOT AT SITE</li>
+                <li onclick="openSite('https://example.com/farm')">TARNI FARMS FAMILY</li>
+                <li onclick="openSite('https://example.com/villa')">TARNI FARMS CELEBRATIONS</li>
+            </ul>
         </div>
     </section>
 
