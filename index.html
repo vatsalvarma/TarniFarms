@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +22,6 @@
         html {
             height: 100%;
             overflow: hidden;
-            /* body/html no longer scroll — snap container does */
         }
 
         /* ==================== SNAP CONTAINER ==================== */
@@ -35,12 +33,10 @@
             scroll-behavior: smooth;
         }
 
-        /* Locking class: disables scroll while theme slider is active */
         #snap-container.snap-locked {
             overflow-y: hidden;
         }
 
-        /* Every top-level snap child */
         #snap-container>.hero,
         #snap-container>section,
         #snap-container>footer {
@@ -68,7 +64,7 @@
         }
 
         .navbar {
-            position: absolute;
+            position: fixed;
             top: 0;
             width: 100%;
             padding: 20px 60px;
@@ -98,6 +94,34 @@
 
         .nav-links a:hover {
             opacity: 0.7;
+        }
+
+        /* Hamburger Menu - Hidden on desktop */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         .bottom-text {
@@ -281,7 +305,7 @@
             font-size: 64px;
             font-weight: 600;
             line-height: 1.1;
-            margin-bottom: 5px;
+            margin-top: 105px;
         }
 
         .title-content p {
@@ -578,19 +602,18 @@
         }
 
         .map {
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
 
-.map iframe {
-
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-}
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
 
         /* ==================== AMENITIES SECTION ==================== */
         :root {
@@ -742,7 +765,7 @@
         .incomes-header {
             position: relative;
             z-index: 5;
-            margin-top: 7vh;
+            margin-top: 15vh;
             text-align: center;
             color: #4a3424;
         }
@@ -1389,7 +1412,7 @@
             text-transform: uppercase;
         }
 
-         /* ==================== STRIP GALLERY SECTION 2 ==================== */
+        /* ==================== STRIP GALLERY SECTION 2 ==================== */
         .strip-heading2 {
             position: absolute;
             top: 20px;
@@ -1408,12 +1431,6 @@
             background-size: 100% auto;
             background-position: center;
             background-repeat: no-repeat;
-        }
-
-        .strip-section::before {
-            content: "";
-            position: absolute;
-            z-index: 1;
         }
 
         .strip-gallery2 {
@@ -1449,30 +1466,6 @@
             animation: stripFloatDown 6s ease-in-out infinite;
         }
 
-        @keyframes stripFloatUp {
-
-            0%,
-            100% {
-                transform: translateY(-20px);
-            }
-
-            50% {
-                transform: translateY(25px);
-            }
-        }
-
-        @keyframes stripFloatDown {
-
-            0%,
-            100% {
-                transform: translateY(25px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
         .strip-card2:hover {
             width: clamp(150px, 18vw, 300px);
         }
@@ -1503,7 +1496,6 @@
             font-size: clamp(14px, 1.5vw, 24px);
         }
 
-
         .menu-card {
             position: absolute;
             left: clamp(40px, 8vw, 140px);
@@ -1511,10 +1503,11 @@
             transform: translateY(-50%);
             z-index: 5;
             line-height: 1.1;
-
         }
 
-        .menu-card ul { list-style: none; }
+        .menu-card ul {
+            list-style: none;
+        }
 
         .menu-card li {
             color: white;
@@ -1525,26 +1518,12 @@
             transition: transform 0.9s ease, color 0.35s ease;
         }
 
-        .menu-card li:hover { transform: translateY(-6px); color: #9cff9c; }
+        .menu-card li:hover {
+            transform: translateY(-6px);
+            color: #9cff9c;
+        }
 
-        /----map------/
-
-        .map {
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
-.map iframe {
-
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-}
-
-   /* ================= HAPPY FACES — FIX ================= */
+        /* ================= HAPPY FACES ================= */
         .faces-section {
             height: 100vh;
             position: relative;
@@ -1589,7 +1568,9 @@
             will-change: transform;
         }
 
-        .faces-slider:hover .faces-track { animation-play-state: paused; }
+        .faces-slider:hover .faces-track {
+            animation-play-state: paused;
+        }
 
         .face-card {
             width: clamp(160px, 18vw, 300px);
@@ -1603,11 +1584,13 @@
         .face-card img {
             width: 100%;
             height: 100%;
-            object-fit: ;
+            object-fit: cover;
             transition: transform 0.9s ease;
         }
 
-        .face-card:hover img { transform: scale(1.2); }
+        .face-card:hover img {
+            transform: scale(1.2);
+        }
 
         .reverse {
             bottom: clamp(20px, 4vh, 60px);
@@ -1621,13 +1604,15 @@
             will-change: transform;
         }
 
-        .reverse:hover .reverse-track { animation-play-state: paused; }
+        .reverse:hover .reverse-track {
+            animation-play-state: paused;
+        }
 
         /* ================= VIDEO POPUP ================= */
         .video-popup {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.85);
+            background: rgba(0, 0, 0, 0.85);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1637,7 +1622,10 @@
             transition: opacity 0.7s ease;
         }
 
-        .video-popup.active { opacity: 1; pointer-events: auto; }
+        .video-popup.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
         .video-container {
             width: 70%;
@@ -1663,7 +1651,7 @@
         }
 
         /* --- FOOTER --- */
-         footer {
+        footer {
             background-color: #0b0b0b;
             color: white;
             padding: 60px 8%;
@@ -1844,77 +1832,42 @@
             font-weight: 500;
         }
 
-            /* ================= SOCIAL FLOATING ================= */
-
-        /* ===============================================================
-           ENHANCED SOCIAL FLOATING SIDEBAR WITH INTERACTIVE SECTIONS
-           ============================================================ */
-
-        /*
-         * MAIN CONTAINER
-         * - Fixed position on right side
-         * - Stays above content but below nav (z-index: 999)
-         * - Stops before footer area
-         */
+        /* ================= SOCIAL FLOATING ================= */
         .social-floating {
             position: fixed;
             right: 27px;
             top: 50%;
             transform: translateY(-50%);
             z-index: 99;
-            /* CUSTOMIZE: Adjust top position if needed */
-            /* CUSTOMIZE: Change right: 0 to add spacing from edge */
         }
 
-        /*
-         * PNG BACKGROUND IMAGE CONTAINER
-         * - Contains the full vertical social icons PNG
-         * - Height and width can be adjusted based on your PNG dimensions
-         */
         .social-bg-image {
             position: relative;
-            width: 50px;  /* CUSTOMIZE: Adjust based on PNG width */
-            height: 450px; /* CUSTOMIZE: Adjust based on PNG height */
+            width: 50px;
+            height: 450px;
             background-image: url("https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Side-line-contact2.png.png");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            /* CUSTOMIZE: Change PNG URL above to your image */
         }
 
-        /*
-         * INDIVIDUAL CLICKABLE SECTIONS
-         * - Each section is a clickable overlay on part of the PNG
-         * - Positioned absolutely within the container
-         * - Invisible by default (transparent)
-         */
         .social-section {
             position: absolute;
             left: 0;
             width: 100%;
             cursor: pointer;
             transition: all 0.3s ease;
-            /* CUSTOMIZE: Add background color to see section boundaries during setup */
-            /* background: rgba(255, 0, 0, 0.2); */
         }
 
-        /* Hover effect - slight scale */
         .social-section:hover {
             transform: scale(1.05);
         }
 
-        /*
-         * HOVER TEXT LABEL
-         * - Hidden by default (opacity 0, translateX)
-         * - Slides in from left on hover
-         * - Positioned to the left of the icon
-         */
         .social-label {
             position: absolute;
-            right: 60px; /* CUSTOMIZE: Adjust distance from icon */
+            right: 60px;
             top: 50%;
             transform: translateY(-50%) translateX(20px);
-
             color: white;
             padding: 8px 16px;
             border-radius: 5px;
@@ -1925,10 +1878,8 @@
             pointer-events: none;
             transition: all 0.3s ease;
             letter-spacing: 1px;
-            /* CUSTOMIZE: Change colors, padding, font size */
         }
 
-        /* Arrow pointing to icon */
         .social-label::after {
             content: "";
             position: absolute;
@@ -1938,75 +1889,31 @@
             border-left: 8px solid rgba(0, 0, 0, 0.85);
             border-top: 6px solid transparent;
             border-bottom: 6px solid transparent;
-            /* CUSTOMIZE: Change arrow color to match label background */
         }
 
-        /* Show label on hover */
         .social-section:hover .social-label {
             opacity: 1;
             transform: translateY(-50%) translateX(0);
         }
 
-        /*
-         * SECTION POSITIONS
-         * - Adjust these values based on where each icon is in your PNG
-         * - top: distance from top of container
-         * - height: height of clickable area
-         */
-
-        /* Section 1: "ENQUIRY NOW" text at top */
         .social-enquiry {
-            top: 50%;;
-            height: 25%; /* CUSTOMIZE: Adjust based on PNG layout */
+            top: 50%;
+            height: 25%;
         }
 
-        /* Section 2: WhatsApp icon */
         .social-whatsapp {
-            top: 82%; /* CUSTOMIZE: Starts where enquiry ends */
-            height: 10%; /* CUSTOMIZE: Height of WhatsApp section */
-
+            top: 82%;
+            height: 10%;
         }
 
-        /* Section 3: Call/Phone icon */
         .social-call {
-            top: 73%; /* CUSTOMIZE: Starts where WhatsApp ends */
-            height: 10%; /* CUSTOMIZE: Height of call section */
-
+            top: 73%;
+            height: 10%;
         }
 
-        /* Section 4: Bottom contact icon */
         .social-contact {
-            top: 89%; /* CUSTOMIZE: Starts where call ends */
-            height: 15%; /* CUSTOMIZE: Height of contact section */
-
-        }
-
-        /*
-         * RESPONSIVE ADJUSTMENTS
-         * - Hide or adjust on mobile devices
-         */
-        @media (max-width: 768px) {
-            .social-floating {
-                right: 5px; /* CUSTOMIZE: Adjust mobile positioning */
-                /* Or hide completely: display: none; */
-            }
-
-            .social-bg-image {
-                width: 40px; /* CUSTOMIZE: Smaller on mobile */
-                height: 360px; /* CUSTOMIZE: Proportional height */
-            }
-
-            .social-label {
-                font-size: 11px; /* CUSTOMIZE: Smaller text on mobile */
-                padding: 6px 12px;
-                right: 50px;
-            }
-        }
-
-        /* Hide social bar when footer is in view */
-        body.footer-visible .social-floating {
-            opacity: 1;
-            pointer-events: none;
+            top: 89%;
+            height: 15%;
         }
 
         /* ================= CHATBOT WIDGET ================= */
@@ -2126,12 +2033,431 @@
             cursor: pointer;
         }
 
+        /* ================================================
+           MOBILE RESPONSIVE STYLES
+           ================================================ */
         @media (max-width: 768px) {
+            /* Hamburger Menu */
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                transition: right 0.4s ease;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 18px;
+            }
+
+            /* Hero Section */
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .logo img {
+                height: 35px;
+            }
+
+            .bottom-text {
+                left: 20px;
+                bottom: 20px;
+            }
+
+            .bottom-text h1 {
+                font-size: 40px;
+            }
+
+            .bottom-text p {
+                font-size: 18px;
+                letter-spacing: 2px;
+            }
+
+            /* Theme Slider */
+            .theme-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .title-card {
+             height 400px;
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .main-text {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .action-btn {
+                grid-column: 1;
+                grid-row: 3;
+                font-size: 10px;
+            }
+
+            .img2 {
+                grid-column: 1;
+                grid-row: 4;
+            }
+
+            .nav-container {
+                grid-column: 1;
+                grid-row: 5;
+                flex-direction: column;
+            }
+
+            .explore {
+                grid-column: 1;
+                grid-row: 6;
+            }
+
+            .center-img {
+                grid-column: 1;
+                grid-row: 7;
+            }
+
+            .stay {
+                grid-column: 1;
+                grid-row: 8;
+            }
+
+            .img4 {
+                grid-column: 1;
+                grid-row: 9;
+            }
+
+            .cuisine {
+                grid-column: 1;
+                grid-row: 10;
+            }
+
+            .food-img {
+                grid-column: 1;
+                grid-row: 11;
+            }
+
+            .title-content h1 {
+                font-size: 32px;
+            }
+
+            .main-text h2 {
+                font-size: 18px;
+            }
+
+            /* Strip Gallery */
+            .strip-gallery,
+            .strip-gallery2 {
+                transform: translateX(0);
+                gap: 15px;
+            }
+
+            .strip-card,
+            .strip-card2 {
+                width: 120px;
+                height: 300px;
+            }
+
+            /* Amenities */
+            .card-slider {
+                right: 5%;
+
+                top: 40%;
+                width: 100%;
+                height: 250px;
+            }
+
+            .amenity-card {
+                min-width: 180px;
+                height: 240px;
+            }
+
+            .girl-image,
+            .boy-image {
+                display: none;
+            }
+
+            .banner {
+                width: 90%;
+                bottom: 70px;
+                padding: 15px 20px;
+            }
+
+            .banner .top,
+            .banner .bottom {
+                font-size: 20px;
+                white-space: normal;
+            }
+
+            /* Investment Circles */
+            .incomes-header h1 {
+                font-size: 20px;
+            }
+
+            .incomes-header h2 {
+                font-size: 10px;
+            }
+
+            .circles-row {
+                height: 250px;
+            }
+
+            .c-desc {
+                font-size: 12px;
+                letter-spacing: 1px;
+            }
+
+            /* Wheel Section */
+            .arc-container {
+                left: -50%;
+                width: 60vh;
+                height: 60vh;
+            }
+
+            .right-display {
+                right: 5%;
+                width: 90%;
+                text-align: center;
+                align-items: center;
+            }
+
+            .top-subtitle {
+                font-size: 24px;
+                white-space: normal;
+            }
+
+            .huge-title {
+                font-size: 36px;
+                white-space: normal;
+            }
+
+            .info-name {
+                font-size: 20px;
+                white-space: normal;
+                text-align: center;
+            }
+
+            .info-tagline {
+                font-size: 14px;
+                white-space: normal;
+                text-align: center;
+            }
+
+            .info-desc {
+                font-size: 11px;
+                text-align: center;
+            }
+
+            /* Farmhouses Slider */
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .hero-title .outlined {
+                margin-left: 0;
+            }
+
+            .crafted-text {
+                font-size: 24px;
+            }
+
+            .bottom-left-panel {
+                left: 20px;
+                bottom: 20px;
+            }
+
+            .right-panel {
+                display: none;
+            }
+
+            /* Menu Card */
+            .menu-card {
+                left: 20px;
+            }
+
+            .menu-card li {
+                font-size: 14px;
+            }
+
+            /* Happy Faces */
+            .faces-title {
+                padding-right: 20px;
+                text-align: center;
+            }
+
+            .faces-text {
+                padding-right: 20px;
+                text-align: center;
+            }
+
+            /* Footer */
+            .footer-grid {
+                flex-direction: column;
+            }
+
+            .footer-col {
+                border-right: none;
+                border-bottom: 1px solid #fff;
+                padding: 20px 0;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-col:last-child {
+                border-bottom: none;
+            }
+
+            .footer-text {
+                white-space: normal;
+            }
+
+            /* Social Floating */
+            .social-floating {
+                right: 10px;
+            }
+
+            .social-bg-image {
+                width: 40px;
+                height: 360px;
+            }
+
+            .social-label {
+                display: none;
+            }
+
+            /* Chatbot */
             .chatbot-window {
                 width: 90vw;
                 height: 60vh;
-                right: 10px;
-                left: 10px;
+            }
+        }
+
+        /* ================================================
+           LARGE SCREEN OPTIMIZATION (2560px+)
+           ================================================ */
+        @media (min-width: 2560px) {
+            /* Container max-width for ultra-wide */
+            .hero,
+            section,
+            footer {
+                max-width: 2560px;
+                margin: 0 auto;
+            }
+
+            /* Hero text scaling */
+            .bottom-text h1 {
+                font-size: 140px;
+            }
+
+            .bottom-text p {
+                font-size: 70px;
+            }
+
+            /* Theme slider cards */
+            .title-content h1 {
+                font-size: 80px;
+            }
+
+            .main-text h2 {
+                font-size: 34px;
+            }
+
+            /* Amenities */
+            .card-slider {
+                width: 1000px;
+                height: 450px;
+            }
+
+            .amenity-card {
+                min-width: 320px;
+                height: 420px;
+            }
+
+            .banner .top {
+                font-size: 60px;
+            }
+
+            .banner .bottom {
+                font-size: 58px;
+            }
+
+            /* Investment circles */
+            .incomes-header h1 {
+                font-size: 48px;
+            }
+
+            .incomes-header h2 {
+                font-size: 18px;
+            }
+
+            /* Wheel */
+            .top-subtitle {
+                font-size: 80px;
+            }
+
+            .huge-title {
+                font-size: 120px;
+            }
+
+            .info-name {
+                font-size: 48px;
+            }
+
+            .info-tagline {
+                font-size: 28px;
+            }
+
+            .info-desc {
+                font-size: 20px;
+            }
+
+            /* Farmhouses */
+            .hero-title {
+                font-size: 160px;
+            }
+
+            .crafted-text {
+                font-size: 68px;
+            }
+
+            .glass-title {
+                font-size: 34px;
+            }
+
+            .adv-item h4 {
+                font-size: 20px;
+            }
+
+            .adv-item p {
+                font-size: 14px;
+            }
+
+            /* Footer */
+            footer {
+                padding: 80px 10%;
+            }
+
+            .footer-bold,
+            .footer-text,
+            .footer-contact-item {
+                font-size: 14px;
             }
         }
     </style>
@@ -2141,67 +2467,29 @@
 
 <div class="social-floating">
     <div class="social-bg-image">
-
-        <!--
-        ══════════════════════════════════════════════════════
-        SECTION 1: ENQUIRY NOW
-        ══════════════════════════════════════════════════════
-        CUSTOMIZE:
-        - Change href to your enquiry page URL
-        - Adjust top/height values to match PNG layout
-        - Modify label text
-        -->
         <a href="https://vatsalvarma.github.io/Greensiri-Contact/"
            class="social-section social-enquiry"
            target="_blank">
             <div class="social-label">ENQUIRY NOW</div>
         </a>
 
-        <!--
-        ══════════════════════════════════════════════════════
-        SECTION 2: CALL
-        ══════════════════════════════════════════════════════
-        CUSTOMIZE:
-        - Change phone number in href (9119925552)
-        - This opens phone dialer on mobile/desktop
-        - Adjust position to match call icon in PNG
-        -->
         <a href="tel:+919119925552"
            class="social-section social-call">
             <div class="social-label">CALL NOW</div>
         </a>
 
-        <!--
-       ══════════════════════════════════════════════════════
-       SECTION 3: WHATSAPP
-       ══════════════════════════════════════════════════════
-       CUSTOMIZE:
-       - Change phone number in href (919999999999)
-       - Modify pre-filled message after &text=
-       - Adjust position to match WhatsApp icon in PNG
-       -->
         <a href="https://wa.me/919999999999?text=Hello%20Greensiri,%20I'm%20interested%20in%20your%20properties"
            class="social-section social-whatsapp"
            target="_blank">
             <div class="social-label">WHATSAPP</div>
         </a>
 
-        <!--
-        ══════════════════════════════════════════════════════
-        SECTION 4: CONTACT US
-        ══════════════════════════════════════════════════════
-        CUSTOMIZE:
-        - Change href to your contact page URL
-        - Adjust position to match bottom icon in PNG
-        - Can also link to email: mailto:contact@greensiri.in
-        -->
         <a href="#"
            class="social-section social-contact"
            id="chatbotToggle"
            role="button">
             <div class="social-label">CHAT-BOT</div>
         </a>
-
     </div>
 </div>
 
@@ -2216,16 +2504,17 @@
             <button class="chatbot-close" id="chatbotClose" aria-label="Close chatbot">&times;</button>
         </div>
         <div class="chatbot-body" id="chatbotMessages">
-            <div class="chat-message bot">Hi, I’m Green Siri. Ask me anything about the project.</div>
+            <div class="chat-message bot">Hi, I'm Green Siri. Ask me anything about the project.</div>
         </div>
         <div class="chatbot-footer">
-            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type a message..." autocomplete="off">
+            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type a message..."
+                   autocomplete="off">
             <button class="chatbot-send" id="chatbotSend">Send</button>
         </div>
     </div>
 </div>
 
-<!-- ===================== SNAP CONTAINER — wraps every snap section ===================== -->
+<!-- ===================== SNAP CONTAINER ===================== -->
 <div id="snap-container">
 
     <!-- HERO SECTION -->
@@ -2239,11 +2528,19 @@
         <div class="navbar">
             <div class="logo">
                 <a href="https://vatsalvarma.github.io/GREENSIRI---prbxxxx/">
-                    <img src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Greensiri%20Tarini%20Farm%20%26%20Resorts%20white%20png.png" alt="Logo">
+                    <img src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Greensiri%20Tarini%20Farm%20%26%20Resorts%20white%20png.png"
+                         alt="Logo">
                 </a>
             </div>
 
-            <div class="nav-links">
+            <!-- Hamburger Menu -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="nav-links" id="navLinks">
                 <a href="https://vatsalvarma.github.io/GREENSIRI---prbxxxx/">HOME</a>
                 <a href="#">FARMHOUSE</a>
                 <a href="#th">RESORT</a>
@@ -2297,8 +2594,8 @@
                 </div>
 
                 <div class="card explore slide-up bg-solid">
-                    <h3 style="font-size: 20px;">EXPLORE</h3>
-                    <p style="font-size: 14px;">Golden Circle tour - waterfalls, geysers, and national parks.</p>
+                    <h3 style="font-size: 20px;"></h3>
+                    <p style="font-size: 14px;  margin-top:30px;" >Golden Circle tour - waterfalls, geysers, and national parks.</p>
                 </div>
 
                 <div class="card center-img slide-up bg-image"
@@ -2357,8 +2654,8 @@
                 </div>
 
                 <div class="card explore slide-up bg-solid">
-                    <h3 style="font-size: 20px;">EXPLORE</h3>
-                    <p style="font-size: 14px;">Visit the ancient ruins of Akrotiri and sail the caldera.</p>
+                    <h3 style="font-size: 20px;"></h3>
+                    <p style="font-size: 14px; margin-top:30px;">Visit the ancient ruins of Akrotiri and sail the caldera.</p>
                 </div>
 
                 <div class="card center-img slide-up bg-image"
@@ -2420,7 +2717,7 @@
     <!-- AMENITIES SECTION -->
     <section class="amenities-scene" id="ame">
         <img src="https://raw.githubusercontent.com/vatsalvarma/Greensiri-landingpage/refs/heads/main/women.png"
-             class="girl-image" />
+             class="girl-image"/>
 
         <div class="card-slider">
             <div class="card-track" id="cardTrack">
@@ -2670,7 +2967,7 @@
     <!-- INVESTMENT CIRCLES SECTION -->
     <section class="sec-incomes" id="inc">
         <img src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/boyimg.png"
-             class="boy-image" />
+             class="boy-image"/>
         <div class="bg-image"></div>
 
         <div class="incomes-header">
@@ -2709,10 +3006,12 @@
                 <div class="dynamic-info" id="dynamic-info">
                     <div class="info-name" id="info-name" style="white-space: nowrap;">LEPAKSHI TEMPLE</div>
                     <div class="info-tagline" id="info-tagline" style="font-size: 22px; white-space: nowrap">MORE
-                        TOURISM = HIGHER LAND VALUE</div>
+                        TOURISM = HIGHER LAND VALUE
+                    </div>
                     <div class="info-desc" id="info-desc" style="font-size: 17px;">LOREM IPSUM DOLOR SIT AMET,
                         CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA
-                        ALIQUA.</div>
+                        ALIQUA.
+                    </div>
                 </div>
 
                 <div class="wheel-controls">
@@ -2733,7 +3032,7 @@
         </div>
     </section>
 
-    <!-- STRIP GALLERY SECTION -->
+    <!-- STRIP GALLERY SECTION 2 -->
     <section class="strip-section2" id="ggallery">
         <div class="vmc-title strip-heading"></div>
         <div class="strip-gallery2">
@@ -2763,39 +3062,78 @@
         </div>
     </section>
 
-    <!-- ================= HAPPY FACES ================= -->
+    <!-- HAPPY FACES SECTION -->
     <section class="faces-section" id="happy">
 
         <h1 class="faces-title">Happy Faces of Greensiri</h1>
-        <p class="faces-text">Our journey is measured not only in projects but in the smiles of families who found their dream spaces with us. Every success story reflects our promise of trust and growth.</p>
+        <p class="faces-text">Our journey is measured not only in projects but in the smiles of families who found
+            their dream spaces with us. Every success story reflects our promise of trust and growth.</p>
 
         <!-- FORWARD SLIDER -->
         <div class="faces-slider">
             <div class="faces-track" id="forwardTrack">
-                <!-- SET A: 4 cards -->
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=RWqNzu-ZthU')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=__kqGVHxFVs')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Rainwater%20Harvesting.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=jlSrhTs60SI')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Model%20house.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=Muh0k3u3aD0')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Sankranti%202026.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=HB2vuYTQW1Y')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=iVmhbveneeM')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=cL1UiNU5-Jk')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration%20at%20corporate%20office.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=83h_KVBSgWg')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20tarini%20farm%20development.jpg"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=RWqNzu-ZthU')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=__kqGVHxFVs')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Rainwater%20Harvesting.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=jlSrhTs60SI')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Model%20house.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=Muh0k3u3aD0')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Sankranti%202026.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=HB2vuYTQW1Y')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=iVmhbveneeM')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=cL1UiNU5-Jk')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration%20at%20corporate%20office.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=83h_KVBSgWg')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20tarini%20farm%20development.jpg">
+                </div>
 
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=l0i45Get_Oo')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Oxygen%20trees.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=CcaOL4s2clE')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Tarani%20serenity.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=VJs4N_Lynyo')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarani%20Farms%20Trailer.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ROwy2lWjQEI')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Independence%20day.jpg"></div>
-                <!-- SET B: duplicate -->
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=DLB622H_omc')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Way%20to%20greensiri%20corporate%20office.jpg"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=z8L3Kf52s4g')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Corporate%20office.jpg"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=FW9A2ceXncY')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Why%20invest%20in%20greensiri.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=25kWUS3ERT0')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20video.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=l0i45Get_Oo')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Oxygen%20trees.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=CcaOL4s2clE')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Tarani%20serenity.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=VJs4N_Lynyo')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarani%20Farms%20Trailer.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ROwy2lWjQEI')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Independence%20day.jpg">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=DLB622H_omc')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Way%20to%20greensiri%20corporate%20office.jpg">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=z8L3Kf52s4g')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Corporate%20office.jpg">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=FW9A2ceXncY')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Why%20invest%20in%20greensiri.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=25kWUS3ERT0')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20video.png">
+                </div>
 
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=9gONxh0mC1g')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Vote%20for%20your%20future.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ASg6j-V1TkY')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20teaser.png"></div>
-                <div class="face-card" onclick="openVideo('https://youtu.be/ASg6j-V1TkY?si=TtXRM-fWAEECfQcN')"><img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/HF3foreground%203.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=F9yiUezyLuc')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Welcome%20to%20greensiri%20farmlands.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=9gONxh0mC1g')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Vote%20for%20your%20future.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ASg6j-V1TkY')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20teaser.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://youtu.be/ASg6j-V1TkY?si=TtXRM-fWAEECfQcN')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/HF3foreground%203.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=F9yiUezyLuc')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Welcome%20to%20greensiri%20farmlands.png">
+                </div>
 
             </div>
         </div>
@@ -2803,33 +3141,71 @@
         <!-- REVERSE SLIDER -->
         <div class="faces-slider reverse">
             <div class="reverse-track" id="reverseTrack">
-                <!-- SET A -->
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=RWqNzu-ZthU')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=__kqGVHxFVs')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Rainwater%20Harvesting.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=jlSrhTs60SI')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Model%20house.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=Muh0k3u3aD0')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Sankranti%202026.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=HB2vuYTQW1Y')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=iVmhbveneeM')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=cL1UiNU5-Jk')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration%20at%20corporate%20office.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=83h_KVBSgWg')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20tarini%20farm%20development.jpg"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=RWqNzu-ZthU')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=__kqGVHxFVs')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Rainwater%20Harvesting.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=jlSrhTs60SI')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Model%20house.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=Muh0k3u3aD0')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Sankranti%202026.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=HB2vuYTQW1Y')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=iVmhbveneeM')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=cL1UiNU5-Jk')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration%20at%20corporate%20office.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=83h_KVBSgWg')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20tarini%20farm%20development.jpg">
+                </div>
 
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=l0i45Get_Oo')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Oxygen%20trees.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=CcaOL4s2clE')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Tarani%20serenity.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=VJs4N_Lynyo')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarani%20Farms%20Trailer.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ROwy2lWjQEI')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Independence%20day.jpg"></div>
-                <!-- SET B: duplicate -->
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=DLB622H_omc')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Way%20to%20greensiri%20corporate%20office.jpg"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=z8L3Kf52s4g')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Corporate%20office.jpg"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=FW9A2ceXncY')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Why%20invest%20in%20greensiri.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=25kWUS3ERT0')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20video.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=l0i45Get_Oo')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Oxygen%20trees.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=CcaOL4s2clE')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Tarani%20serenity.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=VJs4N_Lynyo')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarani%20Farms%20Trailer.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ROwy2lWjQEI')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Independence%20day.jpg">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=DLB622H_omc')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Way%20to%20greensiri%20corporate%20office.jpg">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=z8L3Kf52s4g')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Corporate%20office.jpg">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=FW9A2ceXncY')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Why%20invest%20in%20greensiri.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=25kWUS3ERT0')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20video.png">
+                </div>
 
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=9gONxh0mC1g')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Vote%20for%20your%20future.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ASg6j-V1TkY')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20teaser.png"></div>
-                <div class="face-card" onclick="openVideo('https://youtu.be/ASg6j-V1TkY?si=TtXRM-fWAEECfQcN')"><img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/HF3foreground%203.png"></div>
-                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=F9yiUezyLuc')"><img src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Welcome%20to%20greensiri%20farmlands.png"></div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=9gONxh0mC1g')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Vote%20for%20your%20future.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ASg6j-V1TkY')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20teaser.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://youtu.be/ASg6j-V1TkY?si=TtXRM-fWAEECfQcN')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/HF3foreground%203.png">
+                </div>
+                <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=F9yiUezyLuc')"><img
+                        src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Welcome%20to%20greensiri%20farmlands.png">
+                </div>
 
-             </div>
             </div>
+        </div>
 
     </section>
 
@@ -2918,11 +3294,28 @@
     }
 
     // =====================================================================
-    // THEME SLIDER — only changed: scroll target → snapContainer,
-    //                lock/unlock → CSS class on snapContainer (no body hacks)
+    // HAMBURGER MENU FUNCTIONALITY
+    // =====================================================================
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // =====================================================================
+    // THEME SLIDER
     // =====================================================================
     document.addEventListener('DOMContentLoaded', () => {
-        // ── NEW: grab the snap container once ────────────────────────────
         const snapContainer = document.getElementById('snap-container');
 
         let currentThemeIndex = 0;
@@ -2935,7 +3328,6 @@
         let entryGuard = false;
         let entryGuardTimer;
 
-        // ── CHANGED: scroll snapContainer, not window ────────────────────
         function snapToSlider() {
             const sliderTop = sliderWrapper.offsetTop;
             snapContainer.scrollTo({
@@ -2997,7 +3389,6 @@
             });
         });
 
-        // ── CHANGED: lock = add class to snapContainer (no body position:fixed) ──
         function lockScroll() {
             if (!isScrollLocked) {
                 isScrollLocked = true;
@@ -3007,7 +3398,6 @@
                 entryGuardTimer = setTimeout(() => {
                     entryGuard = false;
                 }, 450);
-                // glide into the slider start so entry feels intentional
                 snapContainer.scrollTo({
                     top: sliderWrapper.offsetTop,
                     behavior: 'smooth'
@@ -3015,7 +3405,6 @@
             }
         }
 
-        // ── CHANGED: unlock = remove class, nudge snapContainer ──────────
         function unlockScroll(direction = 1, autoScroll = true) {
             if (isScrollLocked) {
                 isScrollLocked = false;
@@ -3025,7 +3414,7 @@
                 if (autoScroll) {
                     smoothExit(direction);
                 } else {
-                    snapContainer.scrollBy({ top: 2 * direction, behavior: 'smooth' });
+                    snapContainer.scrollBy({top: 2 * direction, behavior: 'smooth'});
                 }
             }
         }
@@ -3051,7 +3440,6 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting && !hasEnteredSection) {
                     hasEnteredSection = true;
-                    // Reset themes state on entering
                     if (snapContainer.scrollTop < sliderWrapper.offsetTop) {
                         currentThemeIndex = 0;
                     } else if (snapContainer.scrollTop > sliderWrapper.offsetTop) {
@@ -3067,15 +3455,12 @@
                         }
                     });
 
-
                     setTimeout(() => {
                         lockScroll();
                     }, 0);
                 }
-                // Reset flag when section leaves so re-entry works correctly
                 if (!entry.isIntersecting) {
                     hasEnteredSection = false;
-                    // ensure lock is released if user scrolled away externally
                     if (isScrollLocked) unlockScroll(1, false);
                 }
             });
@@ -3106,7 +3491,6 @@
                 if (currentThemeIndex >= themes.length - 1) {
                     unlockScroll(1);
                     hasEnteredSection = false;
-                    // DO NOT prevent default here so normal scroll continues down
                     return;
                 }
                 e.preventDefault();
@@ -3116,7 +3500,6 @@
                 if (currentThemeIndex <= 0) {
                     unlockScroll(-1);
                     hasEnteredSection = false;
-                    // DO NOT prevent default here so normal scroll continues up
                     return;
                 }
                 e.preventDefault();
@@ -3125,16 +3508,14 @@
             }
         }
 
-        // ── CHANGED: listen on snapContainer, not window ─────────────────
-        snapContainer.addEventListener('wheel', handleWheel, { passive: false });
+        snapContainer.addEventListener('wheel', handleWheel, {passive: false});
 
         let touchStartY = 0;
         let touchEndY = 0;
 
-        // ── CHANGED: listen on snapContainer ─────────────────────────────
         snapContainer.addEventListener('touchstart', (e) => {
             touchStartY = e.changedTouches[0].screenY;
-        }, { passive: true });
+        }, {passive: true});
 
         snapContainer.addEventListener('touchend', (e) => {
             if (!isScrollLocked || isAnimating) return;
@@ -3165,11 +3546,11 @@
                     goToTheme('prev');
                 }
             }
-        }, { passive: true });
+        }, {passive: true});
     });
 
     // =====================================================================
-    // AMENITIES CARD SLIDER — unchanged
+    // AMENITIES CARD SLIDER
     // =====================================================================
     const track = document.getElementById("cardTrack");
     let cards = document.querySelectorAll(".amenity-card");
@@ -3200,24 +3581,30 @@
 
     const slider = document.querySelector(".card-slider");
 
-    slider.addEventListener("mouseenter", () => { stopAutoSlide(); });
-    slider.addEventListener("mouseleave", () => { startAutoSlide(); });
+    slider.addEventListener("mouseenter", () => {
+        stopAutoSlide();
+    });
+    slider.addEventListener("mouseleave", () => {
+        startAutoSlide();
+    });
 
-    function stopAutoSlide() { clearInterval(autoSlide); }
+    function stopAutoSlide() {
+        clearInterval(autoSlide);
+    }
 
     updateSlider();
     startAutoSlide();
 
     /* ================================================
-       INVESTMENT CIRCLES SECTION — unchanged
+       INVESTMENT CIRCLES SECTION
        ================================================ */
     const circleData = [
-        { top: "LIFETIME", bottom: "HEALTH AND WEALTH", img: "https://www.colorhexa.com/4a3424.png" },
-        { top: "MONTHLY", bottom: "FARMHOUSE RENTALS", img: "https://www.colorhexa.com/4a3424.png" },
-        { top: "QUARTERLY", bottom: "SHORT TERM CROPS", img: "https://www.colorhexa.com/4a3424.png" },
-        { top: "HALF-YEARLY", bottom: "SPECIAL CROPS", img: "https://www.colorhexa.com/4a3424.png" },
-        { top: "YEARLY", bottom: "SEASONAL CROPS", img: "https://www.colorhexa.com/4a3424.png" },
-        { top: "LONG TERM", bottom: "TIMBER PLANTS", img: "https://www.colorhexa.com/4a3424.png" }
+        {top: "LIFETIME", bottom: "HEALTH AND WEALTH", img: "https://www.colorhexa.com/4a3424.png"},
+        {top: "MONTHLY", bottom: "FARMHOUSE RENTALS", img: "https://www.colorhexa.com/4a3424.png"},
+        {top: "QUARTERLY", bottom: "SHORT TERM CROPS", img: "https://www.colorhexa.com/4a3424.png"},
+        {top: "HALF-YEARLY", bottom: "SPECIAL CROPS", img: "https://www.colorhexa.com/4a3424.png"},
+        {top: "YEARLY", bottom: "SEASONAL CROPS", img: "https://www.colorhexa.com/4a3424.png"},
+        {top: "LONG TERM", bottom: "TIMBER PLANTS", img: "https://www.colorhexa.com/4a3424.png"}
     ];
 
     const CN = circleData.length;
@@ -3244,45 +3631,69 @@
     }
 
     function cUpdate() {
-        cItems.forEach(({ el, shape, label }, i) => {
+        cItems.forEach(({el, shape, label}, i) => {
             const pos = cGetPos(i);
             let tx, opacity, zIdx, w, h, lSize, lWeight, lOpacity, pointer;
 
             switch (pos) {
                 case 'center':
-                    tx = 0; opacity = 1; zIdx = 10;
+                    tx = 0;
+                    opacity = 1;
+                    zIdx = 10;
                     w = h = CD;
-                    lSize = '26px'; lWeight = '800'; lOpacity = '1';
+                    lSize = '26px';
+                    lWeight = '800';
+                    lOpacity = '1';
                     pointer = 'none';
                     break;
                 case 'left':
-                    tx = -DIST; opacity = 1; zIdx = 5;
+                    tx = -DIST;
+                    opacity = 1;
+                    zIdx = 5;
                     w = h = SD;
-                    lSize = '15px'; lWeight = '600'; lOpacity = '0.72';
+                    lSize = '15px';
+                    lWeight = '600';
+                    lOpacity = '0.72';
                     pointer = 'auto';
                     break;
                 case 'right':
-                    tx = DIST; opacity = 1; zIdx = 5;
+                    tx = DIST;
+                    opacity = 1;
+                    zIdx = 5;
                     w = h = SD;
-                    lSize = '15px'; lWeight = '600'; lOpacity = '0.72';
+                    lSize = '15px';
+                    lWeight = '600';
+                    lOpacity = '0.72';
                     pointer = 'auto';
                     break;
                 case 'far-left':
-                    tx = -(DIST * 3.2); opacity = 0; zIdx = 1;
+                    tx = -(DIST * 3.2);
+                    opacity = 0;
+                    zIdx = 1;
                     w = h = SD;
-                    lSize = '15px'; lWeight = '600'; lOpacity = '0';
+                    lSize = '15px';
+                    lWeight = '600';
+                    lOpacity = '0';
                     pointer = 'none';
                     break;
                 case 'far-right':
-                    tx = DIST * 3.2; opacity = 0; zIdx = 1;
+                    tx = DIST * 3.2;
+                    opacity = 0;
+                    zIdx = 1;
                     w = h = SD;
-                    lSize = '15px'; lWeight = '600'; lOpacity = '0';
+                    lSize = '15px';
+                    lWeight = '600';
+                    lOpacity = '0';
                     pointer = 'none';
                     break;
                 default:
-                    tx = 0; opacity = 0; zIdx = 0;
+                    tx = 0;
+                    opacity = 0;
+                    zIdx = 0;
                     w = h = SD;
-                    lSize = '15px'; lWeight = '600'; lOpacity = '0';
+                    lSize = '15px';
+                    lWeight = '600';
+                    lOpacity = '0';
                     pointer = 'none';
             }
 
@@ -3328,22 +3739,34 @@
 
             const shape = el.querySelector('.c-shape');
             const label = el.querySelector('.c-label');
-            cItems.push({ el, shape, label });
+            cItems.push({el, shape, label});
 
             el.addEventListener('click', () => {
                 const pos = cGetPos(i);
-                if (pos === 'left') { cNavigate(-1); cResetAuto(); }
-                if (pos === 'right') { cNavigate(1); cResetAuto(); }
+                if (pos === 'left') {
+                    cNavigate(-1);
+                    cResetAuto();
+                }
+                if (pos === 'right') {
+                    cNavigate(1);
+                    cResetAuto();
+                }
             });
         });
 
-        cRowEl.addEventListener('mouseenter', () => { clearInterval(cAutoInterval); });
-        cRowEl.addEventListener('mouseleave', () => { cResetAuto(); });
+        cRowEl.addEventListener('mouseenter', () => {
+            clearInterval(cAutoInterval);
+        });
+        cRowEl.addEventListener('mouseleave', () => {
+            cResetAuto();
+        });
 
         let dragStart = 0, isDragging = false, hasMoved = false;
 
         cRowEl.addEventListener('mousedown', e => {
-            dragStart = e.clientX; isDragging = true; hasMoved = false;
+            dragStart = e.clientX;
+            isDragging = true;
+            hasMoved = false;
         });
         window.addEventListener('mousemove', e => {
             if (isDragging && Math.abs(e.clientX - dragStart) > 8) hasMoved = true;
@@ -3353,25 +3776,39 @@
             isDragging = false;
             if (hasMoved) {
                 const dx = e.clientX - dragStart;
-                if (Math.abs(dx) > 60) { cNavigate(dx > 0 ? -1 : 1); cResetAuto(); }
+                if (Math.abs(dx) > 60) {
+                    cNavigate(dx > 0 ? -1 : 1);
+                    cResetAuto();
+                }
             }
         });
 
-        cRowEl.addEventListener('touchstart', e => { dragStart = e.touches[0].clientX; }, { passive: true });
+        cRowEl.addEventListener('touchstart', e => {
+            dragStart = e.touches[0].clientX;
+        }, {passive: true});
         cRowEl.addEventListener('touchend', e => {
             const dx = e.changedTouches[0].clientX - dragStart;
-            if (Math.abs(dx) > 60) { cNavigate(dx > 0 ? -1 : 1); cResetAuto(); }
+            if (Math.abs(dx) > 60) {
+                cNavigate(dx > 0 ? -1 : 1);
+                cResetAuto();
+            }
         });
 
-        document.getElementById('c-prev').addEventListener('click', () => { cNavigate(-1); cResetAuto(); });
-        document.getElementById('c-next').addEventListener('click', () => { cNavigate(1); cResetAuto(); });
+        document.getElementById('c-prev').addEventListener('click', () => {
+            cNavigate(-1);
+            cResetAuto();
+        });
+        document.getElementById('c-next').addEventListener('click', () => {
+            cNavigate(1);
+            cResetAuto();
+        });
 
         cUpdate();
         cResetAuto();
     })();
 
     /* ================================================
-       APPRECIATION WHEEL SECTION — unchanged
+       APPRECIATION WHEEL SECTION
        ================================================ */
     const wheelData = [
         {
@@ -3494,6 +3931,7 @@
     }
 
     let wheelInterval;
+
     function startWheelInterval() {
         clearInterval(wheelInterval);
         wheelInterval = setInterval(() => rotateWheel('next'), 4500);
@@ -3514,17 +3952,25 @@
     startWheelInterval();
 
     document.getElementById('wheel-next').addEventListener('click', () => {
-        clearInterval(wheelInterval); rotateWheel('next'); startWheelInterval();
+        clearInterval(wheelInterval);
+        rotateWheel('next');
+        startWheelInterval();
     });
     document.getElementById('wheel-prev').addEventListener('click', () => {
-        clearInterval(wheelInterval); rotateWheel('prev'); startWheelInterval();
+        clearInterval(wheelInterval);
+        rotateWheel('prev');
+        startWheelInterval();
     });
 
-    arcRotator.addEventListener('mouseenter', () => { clearInterval(wheelInterval); });
-    arcRotator.addEventListener('mouseleave', () => { startWheelInterval(); });
+    arcRotator.addEventListener('mouseenter', () => {
+        clearInterval(wheelInterval);
+    });
+    arcRotator.addEventListener('mouseleave', () => {
+        startWheelInterval();
+    });
 
     /* ================================================
-       FARMHOUSES SLIDER — unchanged
+       FARMHOUSES SLIDER
        ================================================ */
     const slidesData = [
         {
@@ -3533,10 +3979,16 @@
             heroText1: "CAPSULE", heroText2: "STAY", title: "ADVANTAGES",
             subtitle: "FARMHOUSES<br>CRAFTED FOR YOU",
             cards: [
-                { title: "BUDGET FRIENDLY STAY", desc: "AFFORDABLE ALTERNATIVE TO HOTELS WITHOUT COMPROMISING BASIC COMFORT." },
-                { title: "COMPACT PRIVATE SPACE", desc: "PERSONAL SLEEPING POD THAT OFFERS PRIVACY IN A SMALL FOOTPRINT." },
-                { title: "PRIME LOCATION ACCESS", desc: "USUALLY LOCATED NEAR TRANSIT HUBS AND CITY HOTSPOTS." },
-                { title: "SAFE SECURE PODS", desc: "INDIVIDUAL CAPSULES WITH LOCKERS AND CONTROLLED ENTRY FOR SAFETY." }
+                {
+                    title: "BUDGET FRIENDLY STAY",
+                    desc: "AFFORDABLE ALTERNATIVE TO HOTELS WITHOUT COMPROMISING BASIC COMFORT."
+                },
+                {title: "COMPACT PRIVATE SPACE", desc: "PERSONAL SLEEPING POD THAT OFFERS PRIVACY IN A SMALL FOOTPRINT."},
+                {title: "PRIME LOCATION ACCESS", desc: "USUALLY LOCATED NEAR TRANSIT HUBS AND CITY HOTSPOTS."},
+                {
+                    title: "SAFE SECURE PODS",
+                    desc: "INDIVIDUAL CAPSULES WITH LOCKERS AND CONTROLLED ENTRY FOR SAFETY."
+                }
             ]
         },
         {
@@ -3545,10 +3997,22 @@
             heroText1: "DOME", heroText2: "STAY", title: "ADVANTAGES",
             subtitle: "FARMHOUSES<br>CRAFTED FOR YOU",
             cards: [
-                { title: "SMART SPACE, MAXIMMUM COMFORT", desc: "EXPERIENCE A PERFECTLY DESIGNED PRIVATE CAPSULE THAT DELEVERS COMFORT WITHOUT THE HIGH PRICE TAG." },
-                { title: "PREMIUM STAY, BUDGET PRICE", desc: "ENJOY HOTEL-LIKE AMENITIES AND MODERN INTERIORS AT A FRACTION OF TRADITIONAL HOTEL COSTS." },
-                { title: "YOUR PRIVATE POD, YOUR PEACE", desc: "RELAX IN A SECURE, PERSONAL SPACE BUILT FOR PRIVACY, SAFETY, AND UNINTERRUPTED REST." },
-                { title: "FUTURISTIC STAY EXPERIENCE", desc: "STEP INTO NEXT-GEN LIVING WITH SMART LIGHTING, CHARGING PORTS, AND THOUGHTFULLY DESIGNED INTERIORS." }
+                {
+                    title: "SMART SPACE, MAXIMMUM COMFORT",
+                    desc: "EXPERIENCE A PERFECTLY DESIGNED PRIVATE CAPSULE THAT DELEVERS COMFORT WITHOUT THE HIGH PRICE TAG."
+                },
+                {
+                    title: "PREMIUM STAY, BUDGET PRICE",
+                    desc: "ENJOY HOTEL-LIKE AMENITIES AND MODERN INTERIORS AT A FRACTION OF TRADITIONAL HOTEL COSTS."
+                },
+                {
+                    title: "YOUR PRIVATE POD, YOUR PEACE",
+                    desc: "RELAX IN A SECURE, PERSONAL SPACE BUILT FOR PRIVACY, SAFETY, AND UNINTERRUPTED REST."
+                },
+                {
+                    title: "FUTURISTIC STAY EXPERIENCE",
+                    desc: "STEP INTO NEXT-GEN LIVING WITH SMART LIGHTING, CHARGING PORTS, AND THOUGHTFULLY DESIGNED INTERIORS."
+                }
             ]
         },
         {
@@ -3557,10 +4021,22 @@
             heroText1: "INTERLOCKING", heroText2: "STAY", title: "ADVANTAGES",
             subtitle: "FARMHOUSES<br>CRAFTED FOR YOU",
             cards: [
-                { title: "STAY TOGETHER, SLEEP BETTER", desc: "INTERLOCKING PODS LET GROUPS STAY CONNECTED WHILE STILL ENJOYING PERSONAL COMFORT." },
-                { title: "PERFECT FOR FRIENDS & TEAMS", desc: "DESIGNED FOR SHARED TRAVEL, INTERLOCKING STAYS KEEP EVERYONE CLOSE AND ORGANIZED." },
-                { title: "SMART SHARED PRIVACY", desc: "CONNECTED LAYOUTS OFFER BOTH GROUP BONDING AND INDIVIDUAL SLEEPING SPACES." },
-                { title: "FLEXIBLE & FUN EXPERIENCE", desc: "A UNIQUE STAY CONCEPT THAT BLENDS COMMUNITY VIBES WITH MODERN POD COMFORT." }
+                {
+                    title: "STAY TOGETHER, SLEEP BETTER",
+                    desc: "INTERLOCKING PODS LET GROUPS STAY CONNECTED WHILE STILL ENJOYING PERSONAL COMFORT."
+                },
+                {
+                    title: "PERFECT FOR FRIENDS & TEAMS",
+                    desc: "DESIGNED FOR SHARED TRAVEL, INTERLOCKING STAYS KEEP EVERYONE CLOSE AND ORGANIZED."
+                },
+                {
+                    title: "SMART SHARED PRIVACY",
+                    desc: "CONNECTED LAYOUTS OFFER BOTH GROUP BONDING AND INDIVIDUAL SLEEPING SPACES."
+                },
+                {
+                    title: "FLEXIBLE & FUN EXPERIENCE",
+                    desc: "A UNIQUE STAY CONCEPT THAT BLENDS COMMUNITY VIBES WITH MODERN POD COMFORT."
+                }
             ]
         },
         {
@@ -3569,10 +4045,22 @@
             heroText1: "COURTYARD", heroText2: "STAY", title: "ADVANTAGES",
             subtitle: "FARMHOUSES<br>CRAFTED FOR YOU",
             cards: [
-                { title: "TRADITIONAL CHARM, MODERN COMFORT", desc: "EXPERIENCE THE WARMTH OF A MANDAVA-STYLE COURTYARD BLENDED WITH CONTEMPORARY STAY AMENITIES." },
-                { title: "OPEN-AIR RELAXATION SPACE", desc: "A SERENE CENTRAL COURTYARD DESIGNED FOR GATHERINGS, FRESH AIR, AND PEACEFUL MOMENTS." },
-                { title: "STAY AROUND THE HEART OF THE HOME", desc: "ROOMS ARRANGED AROUND THE COURTYARD CREATE A CONNECTED AND COMMUNITY-FRIENDLY STAY." },
-                { title: "CULTURAL STAY EXPERIENCE", desc: "ENJOY AN AUTHENTIC COURTYARD LIVING INSPIRED BY HERITAGE ARCHITECTURE WITH MODERN LUXURY." }
+                {
+                    title: "TRADITIONAL CHARM, MODERN COMFORT",
+                    desc: "EXPERIENCE THE WARMTH OF A MANDAVA-STYLE COURTYARD BLENDED WITH CONTEMPORARY STAY AMENITIES."
+                },
+                {
+                    title: "OPEN-AIR RELAXATION SPACE",
+                    desc: "A SERENE CENTRAL COURTYARD DESIGNED FOR GATHERINGS, FRESH AIR, AND PEACEFUL MOMENTS."
+                },
+                {
+                    title: "STAY AROUND THE HEART OF THE HOME",
+                    desc: "ROOMS ARRANGED AROUND THE COURTYARD CREATE A CONNECTED AND COMMUNITY-FRIENDLY STAY."
+                },
+                {
+                    title: "CULTURAL STAY EXPERIENCE",
+                    desc: "ENJOY AN AUTHENTIC COURTYARD LIVING INSPIRED BY HERITAGE ARCHITECTURE WITH MODERN LUXURY."
+                }
             ]
         },
         {
@@ -3581,10 +4069,22 @@
             heroText1: "MUDHOUSE", heroText2: "STAY", title: "ADVANTAGES",
             subtitle: "FARMHOUSES<br>CRAFTED FOR YOU",
             cards: [
-                { title: "EARTHY LIVING, PURE COMFORT", desc: "EXPERIENCE A NATURALLY COOL MUDHOUSE STAY DESIGNED FOR PEACEFUL AND RELAXING ESCAPES." },
-                { title: "ECO-FRIENDLY STAY EXPERIENCE", desc: "BUILT WITH NATURAL MATERIALS, OFFERING SUSTAINABLE LIVING WITHOUT COMPROMISING COMFORT." },
-                { title: "NATURALLY COOL INTERIORS", desc: "THICK MUD WALLS KEEP THE SPACE COOL IN SUMMER AND COZY IN ALL SEASONS." },
-                { title: "RUSTIC CHARM, MODERN AMENITIES", desc: "TRADITIONAL MUDHOUSE AESTHETICS COMBINED WITH ESSENTIAL MODERN COMFORTS." }
+                {
+                    title: "EARTHY LIVING, PURE COMFORT",
+                    desc: "EXPERIENCE A NATURALLY COOL MUDHOUSE STAY DESIGNED FOR PEACEFUL AND RELAXING ESCAPES."
+                },
+                {
+                    title: "ECO-FRIENDLY STAY EXPERIENCE",
+                    desc: "BUILT WITH NATURAL MATERIALS, OFFERING SUSTAINABLE LIVING WITHOUT COMPROMISING COMFORT."
+                },
+                {
+                    title: "NATURALLY COOL INTERIORS",
+                    desc: "THICK MUD WALLS KEEP THE SPACE COOL IN SUMMER AND COZY IN ALL SEASONS."
+                },
+                {
+                    title: "RUSTIC CHARM, MODERN AMENITIES",
+                    desc: "TRADITIONAL MUDHOUSE AESTHETICS COMBINED WITH ESSENTIAL MODERN COMFORTS."
+                }
             ]
         },
         {
@@ -3593,10 +4093,22 @@
             heroText1: "PREFAB", heroText2: "STAY", title: "ADVANTAGES",
             subtitle: "FARMHOUSES<br>CRAFTED FOR YOU",
             cards: [
-                { title: "MODERN DESIGN, INSTANT COMFORT", desc: "EXPERIENCE SLEEK PREFAB STAYS DESIGNED FOR QUICK SETUP AND PREMIUM COMFORT." },
-                { title: "SMART & EFFICIENT LIVING", desc: "ENGINEERED SPACES THAT MAXIMIZE FUNCTIONALITY WITHOUT COMPROMISING STYLE." },
-                { title: "SUSTAINABLE BUILD ADVANTAGE", desc: "PREFAB CONSTRUCTION REDUCES WASTE WHILE DELIVERING ECO-CONSCIOUS STAY EXPERIENCES." },
-                { title: "COMPACT LUXURY EXPERIENCE", desc: "ENJOY THOUGHTFULLY DESIGNED INTERIORS PACKED WITH MODERN AMENITIES AND COMFORT." }
+                {
+                    title: "MODERN DESIGN, INSTANT COMFORT",
+                    desc: "EXPERIENCE SLEEK PREFAB STAYS DESIGNED FOR QUICK SETUP AND PREMIUM COMFORT."
+                },
+                {
+                    title: "SMART & EFFICIENT LIVING",
+                    desc: "ENGINEERED SPACES THAT MAXIMIZE FUNCTIONALITY WITHOUT COMPROMISING STYLE."
+                },
+                {
+                    title: "SUSTAINABLE BUILD ADVANTAGE",
+                    desc: "PREFAB CONSTRUCTION REDUCES WASTE WHILE DELIVERING ECO-CONSCIOUS STAY EXPERIENCES."
+                },
+                {
+                    title: "COMPACT LUXURY EXPERIENCE",
+                    desc: "ENJOY THOUGHTFULLY DESIGNED INTERIORS PACKED WITH MODERN AMENITIES AND COMFORT."
+                }
             ]
         }
     ];
@@ -3611,7 +4123,7 @@
             const bgDiv = document.createElement('div');
             bgDiv.className = `bg-slide ${i === 0 ? 'active' : ''}`;
             bgDiv.style.backgroundImage = `url(${slide.bg})`;
-            bgDiv.appendChild(Object.assign(document.createElement('div'), { className: 'bg-overlay' }));
+            bgDiv.appendChild(Object.assign(document.createElement('div'), {className: 'bg-overlay'}));
             layerBg.appendChild(bgDiv);
 
             const textDiv = document.createElement('div');
@@ -3806,80 +4318,75 @@
     }
 
     chatbotDragHandle?.addEventListener('pointerdown', handleDragStart);
-</script>
-
-<script>
 
     /* ===== VIDEO POPUP ===== */
-  function openVideo(url) {
-      const popup = document.getElementById("videoPopup");
-      const frame = document.getElementById("videoFrame");
-      let embedUrl = url;
-      if (url.includes("watch?v=")) {
-          const videoId = url.split("watch?v=")[1].split("&")[0];
-          embedUrl = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
-      }
-      frame.src = embedUrl;
-      popup.classList.add("active");
-  }
-
-  function closeVideo() {
-      document.getElementById("videoPopup").classList.remove("active");
-      document.getElementById("videoFrame").src = "";
-  }
-
-  function goProject(url)  { window.location.href = url; }
-  function openProject(url){ window.location.href = url; }
-  function openSite(url)   { window.location.href = url; }
-
-
-
-  function toggleMenu(){
-  document.querySelector(".nav-menu").classList.toggle("active");
-}
-
-function closeMenu(){
-  document.querySelector(".nav-menu").classList.remove("active");
-}
-
-// ================= HAPPY FACES MARQUEE =================
-function setupMarquee(trackId, speedPxPerFrame) {
-  const track = document.getElementById(trackId);
-  if (!track) return;
-  const container = track.parentElement;
-  const baseItems = Array.from(track.children);
-  const baseWidth = track.scrollWidth;
-  if (!baseWidth) return;
-
-  const neededClones = Math.max(1, Math.ceil((container.offsetWidth * 2) / baseWidth));
-  for (let i = 0; i < neededClones; i++) {
-    baseItems.forEach(node => track.appendChild(node.cloneNode(true)));
-  }
-
-  const resetDistance = baseWidth;
-  let offset = speedPxPerFrame > 0 ? -resetDistance : 0;
-  let paused = false;
-
-  container.addEventListener('mouseenter', () => { paused = true; });
-  container.addEventListener('mouseleave', () => { paused = false; });
-
-  function tick() {
-    if (!paused) {
-      offset += speedPxPerFrame;
-      if (speedPxPerFrame < 0 && offset <= -resetDistance) offset = 0;
-      if (speedPxPerFrame > 0 && offset >= 0) offset = -resetDistance;
-      track.style.transform = `translateX(${offset}px)`;
+    function openVideo(url) {
+        const popup = document.getElementById("videoPopup");
+        const frame = document.getElementById("videoFrame");
+        let embedUrl = url;
+        if (url.includes("watch?v=")) {
+            const videoId = url.split("watch?v=")[1].split("&")[0];
+            embedUrl = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+        }
+        frame.src = embedUrl;
+        popup.classList.add("active");
     }
-    requestAnimationFrame(tick);
-  }
 
-  requestAnimationFrame(tick);
-}
+    function closeVideo() {
+        document.getElementById("videoPopup").classList.remove("active");
+        document.getElementById("videoFrame").src = "";
+    }
 
-window.addEventListener('load', () => {
-  setupMarquee('forwardTrack', -0.8);
-  setupMarquee('reverseTrack', 0.8);
-});
+    function openProject(url) {
+        window.location.href = url;
+    }
+
+    function openSite(url) {
+        window.location.href = url;
+    }
+
+    // ================= HAPPY FACES MARQUEE =================
+    function setupMarquee(trackId, speedPxPerFrame) {
+        const track = document.getElementById(trackId);
+        if (!track) return;
+        const container = track.parentElement;
+        const baseItems = Array.from(track.children);
+        const baseWidth = track.scrollWidth;
+        if (!baseWidth) return;
+
+        const neededClones = Math.max(1, Math.ceil((container.offsetWidth * 2) / baseWidth));
+        for (let i = 0; i < neededClones; i++) {
+            baseItems.forEach(node => track.appendChild(node.cloneNode(true)));
+        }
+
+        const resetDistance = baseWidth;
+        let offset = speedPxPerFrame > 0 ? -resetDistance : 0;
+        let paused = false;
+
+        container.addEventListener('mouseenter', () => {
+            paused = true;
+        });
+        container.addEventListener('mouseleave', () => {
+            paused = false;
+        });
+
+        function tick() {
+            if (!paused) {
+                offset += speedPxPerFrame;
+                if (speedPxPerFrame < 0 && offset <= -resetDistance) offset = 0;
+                if (speedPxPerFrame > 0 && offset >= 0) offset = -resetDistance;
+                track.style.transform = `translateX(${offset}px)`;
+            }
+            requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+    }
+
+    window.addEventListener('load', () => {
+        setupMarquee('forwardTrack', -0.8);
+        setupMarquee('reverseTrack', 0.8);
+    });
 </script>
 
 </body>
