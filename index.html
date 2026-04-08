@@ -2202,6 +2202,12 @@
                 background-position: center center;
             }
 
+            .strip-section2 {
+                min-height: 100svh;
+                background-size: cover;
+                background-position: center center;
+            }
+
             .strip-gallery,
             .strip-gallery2 {
                 transform: translateX(0);
@@ -2379,6 +2385,7 @@
 
             /* Menu Card */
             .menu-card {
+              top: 670px;
                 left: 20px;
             }
 
@@ -2387,6 +2394,11 @@
             }
 
             /* Happy Faces */
+            .faces-section {
+                --mobile-face-card-width: 220px;
+                --mobile-face-card-height: 140px;
+            }
+
             .faces-title {
                 padding-right: 20px;
                 text-align: center;
@@ -2395,6 +2407,11 @@
             .faces-text {
                 padding-right: 20px;
                 text-align: center;
+            }
+
+            .face-card {
+                width: var(--mobile-face-card-width);
+                height: var(--mobile-face-card-height);
             }
 
             /* Footer */
