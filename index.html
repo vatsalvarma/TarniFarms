@@ -2462,217 +2462,111 @@
            LARGE SCREEN OPTIMIZATION (2560px+)
            ================================================ */
         @media (min-width: 2560px) {
+            /* Container max-width for ultra-wide */
             .hero,
             section,
             footer {
-                max-width: 1920px;
-                width: 100%;
+                max-width: 2560px;
                 margin: 0 auto;
             }
 
-            .slider-wrapper,
-            .theme-grid,
-            .sec-incomes,
-            .mission-section,
-            .farmhouses-section,
-            .faces-section {
-                width: 100%;
-            }
-
+            /* Hero text scaling */
             .bottom-text h1 {
-                font-size: 100px;
+                font-size: 140px;
             }
 
             .bottom-text p {
-                font-size: 54px;
+                font-size: 70px;
             }
 
+            /* Theme slider cards */
             .title-content h1 {
-                font-size: 64px;
+                font-size: 80px;
             }
 
             .main-text h2 {
-                font-size: 26px;
+                font-size: 34px;
             }
 
-            .theme-grid:not(.active):not(.outgoing) .card.slide-left {
-                transform: translateX(-280px);
-            }
-
-            .theme-grid:not(.active):not(.outgoing) .card.slide-right {
-                transform: translateX(280px);
-            }
-
-            .theme-grid:not(.active):not(.outgoing) .card.slide-up {
-                transform: translateY(-180px);
-            }
-
-            .theme-grid:not(.active):not(.outgoing) .card.slide-down {
-                transform: translateY(180px);
-            }
-
-            .theme-grid.outgoing .card.slide-left {
-                transform: translateX(-760px);
-            }
-
-            .theme-grid.outgoing .card.slide-right {
-                transform: translateX(760px);
-            }
-
-            .theme-grid.outgoing .card.slide-up {
-                transform: translateY(-420px);
-            }
-
-            .theme-grid.outgoing .card.slide-down {
-                transform: translateY(420px);
-            }
-
+            /* Amenities */
             .card-slider {
-                width: 820px;
-                height: 400px;
+                width: 1000px;
+                height: 450px;
             }
 
             .amenity-card {
-                min-width: 280px;
-                height: 380px;
-            }
-
-            .banner {
-                width: 820px;
-                padding: 26px 38px 29px;
+                min-width: 320px;
+                height: 420px;
             }
 
             .banner .top {
-                font-size: 47px;
-            }
-
-            .banner .bottom {
-                font-size: 45px;
-            }
-
-            .incomes-header {
-                margin-top: 7vh;
-            }
-
-            .incomes-header h1 {
-                font-size: 42px;
-            }
-
-            .incomes-header h2 {
-                font-size: 14px;
-            }
-
-            .top-subtitle {
                 font-size: 60px;
             }
 
+            .banner .bottom {
+                font-size: 58px;
+            }
+
+            /* Investment circles */
+            .incomes-header h1 {
+                font-size: 48px;
+            }
+
+            .incomes-header h2 {
+                font-size: 18px;
+            }
+
+            /* Wheel */
+            .top-subtitle {
+                font-size: 80px;
+            }
+
             .huge-title {
-                font-size: 90px;
-            }
-
-            .info-name {
-                font-size: 36px;
-            }
-
-            .info-tagline {
-                font-size: 22px;
-            }
-
-            .info-desc {
-                font-size: 17px;
-            }
-
-            .hero-title {
                 font-size: 120px;
             }
 
-            .crafted-text {
-                font-size: 52px;
+            .info-name {
+                font-size: 48px;
             }
 
-            .menu-card {
-                left: 96px;
-            }
-
-            .menu-card li {
-                font-size: 24px;
-                margin: 20px 0;
-            }
-
-            .png-slide {
-                left: 50%;
-                height: min(100vh, 1080px);
-                max-width: min(78vw, 1320px);
-            }
-
-            .png-slide.active {
-                transform: translateX(-50%) scale(1);
-            }
-
-            .png-slide.prev {
-                transform: translateX(-1800px) scale(0.9);
-            }
-
-            .right-panel {
-                top: 50%;
-                right: 70px;
-                width: 360px;
-            }
-
-            .faces-section {
-                padding-top: 140px;
-            }
-
-            .faces-title {
-                font-size: 64px;
-                padding-right: 100px;
-            }
-
-            .faces-text {
-                max-width: 750px;
-                margin-top: 20px;
-                font-size: 18px;
-                padding-right: 100px;
-            }
-
-            .faces-slider {
-                bottom: 220px;
-            }
-
-            .faces-track,
-            .reverse-track {
-                gap: 32px;
-            }
-
-            .face-card {
-                width: 300px;
-                height: 270px;
-            }
-
-            .reverse {
-                bottom: 40px;
-            }
-
-            .glass-title {
+            .info-tagline {
                 font-size: 28px;
             }
 
+            .info-desc {
+                font-size: 20px;
+            }
+
+            /* Farmhouses */
+            .hero-title {
+                font-size: 160px;
+            }
+
+            .crafted-text {
+                font-size: 68px;
+            }
+
+            .glass-title {
+                font-size: 34px;
+            }
+
             .adv-item h4 {
-                font-size: 15px;
+                font-size: 20px;
             }
 
             .adv-item p {
-                font-size: 10px;
+                font-size: 14px;
             }
 
+            /* Footer */
             footer {
-                padding: 60px 8%;
+                padding: 80px 10%;
             }
 
             .footer-bold,
             .footer-text,
             .footer-contact-item {
-                font-size: 11px;
+                font-size: 14px;
             }
         }
     </style>
