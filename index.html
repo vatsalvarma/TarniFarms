@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Greensiri%20Logo%20Fevicon%20Green.png">
+    <link rel="icon"
+          href="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Greensiri%20Logo%20Fevicon%20Green.png">
     <title>tarnifarms</title>
 
     <style>
@@ -72,7 +68,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 60px;
+            padding: 15px 80px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -91,7 +87,7 @@
         .nav-links a {
             text-decoration: none;
             color: #fff;
-            font-size: 14px;
+            font-size: 12px;
             letter-spacing: 1px;
             font-weight: 500;
             transition: 0.3s;
@@ -899,7 +895,7 @@
 
         .boy-image {
             position: absolute;
-            left: 1053px;
+            left: calc(50% + 93px); /* Perfectly anchors visually identical to 1053px on a 1920px screen */
             bottom: 6%;
             height: 39%;
             z-index: 9999;
@@ -2054,6 +2050,7 @@
            MOBILE RESPONSIVE STYLES
            ================================================ */
         @media (max-width: 768px) {
+
             /* Hamburger Menu */
             .hamburger {
                 display: flex;
@@ -2105,118 +2102,183 @@
                 letter-spacing: 2px;
             }
 
-            /* Theme Slider */
+            /* Theme Slider Mobile Bento Box Layout */
             .theme-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto;
-                gap: 10px;
-                padding: 10px;
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 140px;
+                gap: 12px;
+                padding: 15px;
+                overflow-y: auto;
+                max-height: 82vh;
+                margin-top: 70px;
+                padding-bottom: 40px;
             }
 
-            .title-card{
-            height:100px;
+            .theme-grid .card {
+                height: 100% !important;
+                min-height: unset !important;
+                border-radius: 22px;
+                margin: 0;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             }
 
             .title-card {
-             height 400px;
-                grid-column: 1;
+                grid-column: 1 / 3;
                 grid-row: 1;
             }
 
-            .main-text {
-                grid-column: 1;
-                grid-row: 2;
-            }
-
-            .action-btn {
-                grid-column: 1;
-                grid-row: 3;
-                font-size: 10px;
-            }
-
-            .img2{
-            height:100px;
-            }
-
-            .img2 {
-                grid-column: 1;
-                grid-row: 4;
-            }
-
-            .nav-container {
-                grid-column: 1;
-                grid-row: 5;
-                flex-direction: column;
-            }
-
-            .explore {
-                grid-column: 1;
-                grid-row: 6;
-                display: none;
-            }
-
-            .center-img {
-            height:100px;
-                grid-column: 1;
-                grid-row: 6;
-            }
-
-            .stay{
-            height:40px;
-            }
-
-            .stay {
-                grid-column: 1;
-                grid-row: 7;
-            }
-
-            .img4{
-
-            }
-
-            .img4 {
-
-                grid-column: 1;
-                grid-row: 8;
-            }
-
-            .cuisine {
-
-                grid-column: 1;
-                grid-row: 9;
-            }
-
-            .food-img {
-                grid-column: 1;
-                grid-row: 10;
+            .title-content {
+                padding: 20px !important;
             }
 
             .title-content h1 {
-                font-size: 32px;
+                font-size: 24px;
+                margin-top: auto;
+                margin-bottom: 10px;
+            }
+
+            .title-content p {
+                font-size: 11px;
+            }
+
+            .main-text {
+                grid-column: 1 / 3;
+                grid-row: 2;
+                padding: 15px 20px;
             }
 
             .main-text h2 {
-                font-size: 18px;
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+
+            .img2 {
+                grid-column: 1 / 2;
+                grid-row: 3;
+            }
+
+            .explore {
+                grid-column: 2 / 3;
+                grid-row: 3;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .explore h3 {
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            .explore p {
+                font-size: 10px;
+            }
+
+            .center-img {
+                grid-column: 1 / 3;
+                grid-row: 4 / 6;
+            }
+
+            .stay {
+                grid-column: 1 / 2;
+                grid-row: 6;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .stay h3 {
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            .stay p {
+                font-size: 10px;
+            }
+
+            .img4 {
+                grid-column: 2 / 3;
+                grid-row: 6;
+            }
+
+            .cuisine {
+                grid-column: 1 / 2;
+                grid-row: 7;
+                padding: 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .cuisine h3 {
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            .cuisine p {
+                font-size: 10px;
+            }
+
+            .food-img {
+                grid-column: 2 / 3;
+                grid-row: 7;
+            }
+
+            .nav-container {
+                grid-column: 1 / 3;
+                grid-row: 8;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                background: transparent !important;
+                box-shadow: none !important;
+            }
+
+            .nav-container .nav-btn {
+                width: 60px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px !important;
+                border-radius: 30px !important;
+                background-color: var(--card-bg) !important;
+            }
+
+            .action-btn {
+                grid-column: 1 / 3;
+                grid-row: 9;
+                font-size: 14px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             /* Strip Gallery */
-            .strip-section {
-                min-height: 100svh;
-                background-size: cover;
-                background-position: center center;
-            }
-
+            .strip-section,
             .strip-section2 {
                 min-height: 100svh;
                 background-size: cover;
                 background-position: center center;
             }
 
+            .strip-heading {
+                display: none !important;
+            }
+
             .strip-gallery,
             .strip-gallery2 {
                 transform: translateX(0);
                 gap: 15px;
-
             }
 
             .strip-card,
@@ -2227,30 +2289,66 @@
 
             .strip-title,
             .strip-title2 {
-                top: auto;
-                bottom: 18px;
-                left: 50%;
-                transform: translateX(-50%);
-                transform-origin: center;
-                font-size: 16px;
-                letter-spacing: 1px;
-                white-space: normal;
-                width: calc(100% - 16px);
-                text-align: center;
+                top: 85% !important;
+                bottom: auto !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) rotate(-90deg) !important;
+                transform-origin: center center !important;
+                font-size: 26px !important;
+                font-weight: 700 !important;
+                letter-spacing: 2px !important;
+                white-space: nowrap !important;
+                width: auto !important;
+                text-align: center !important;
+                color: #fff !important;
+                text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8) !important;
             }
 
-            /* Amenities */
+            /* Amenities Coverflow */
             .card-slider {
-                right: 0%;
+                right: auto !important;
+                left: 0 !important;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 100vw;
+                height: 350px;
+                overflow: hidden !important;
+            }
 
-                top: 40%;
-                width: 100%;
-                height: 250px;
+            .card-track {
+                transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             }
 
             .amenity-card {
-                min-width: 180px;
-                height: 240px;
+                min-width: 140px;
+                height: 220px;
+                margin: 0 -25px;
+                border-radius: 0 0 7px 7px !important;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                opacity: 0 !important;
+                visibility: hidden;
+                transform: scale(0.85);
+                transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+                z-index: 1;
+            }
+
+            .amenity-card.active {
+                opacity: 1 !important;
+                visibility: visible;
+                transform: scale(1.25);
+                z-index: 3;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+            }
+
+            .amenity-card:has(+ .active),
+            .amenity-card.active+.amenity-card {
+                opacity: 1 !important;
+                visibility: visible;
+            }
+
+            .amenity-card span {
+                font-size: 11px;
+                bottom: 15px;
             }
 
             .girl-image,
@@ -2280,7 +2378,7 @@
             }
 
             .circles-row {
-               top:-10%;
+                top: -10%;
                 height: 250px;
             }
 
@@ -2290,165 +2388,240 @@
             }
 
             /* Wheel Section */
-            .arc-container {
-                left: -70%;
-                width: 50vh;
-                height: 50vh;
+            .sec-wheel {
+                flex-direction: column;
+                justify-content: space-between;
+                padding-top: 80px;
+            }
+
+            .wheel-content {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                width: 100%;
             }
 
             .right-display {
-                top: 67%;
-                right: 39%;
-                width: 90%;
+                position: relative;
+                top: auto;
+                right: auto;
+                left: auto;
+                transform: none;
+                width: 100%;
+                padding: 0 20px;
                 text-align: center;
                 align-items: center;
+                order: 1;
             }
 
-
+            .arc-container {
+                position: relative;
+                left: 50%;
+                top: auto;
+                bottom: -15vh;
+                transform: translateX(-50%);
+                width: 60vh;
+                height: 60vh;
+                order: 2;
+            }
 
             .top-subtitle {
-                display: none;
+                display: block;
+                font-size: 16px !important;
+                white-space: normal !important;
+                text-align: center;
             }
 
             .huge-title {
-                display: none;
+                display: block;
+                font-size: 32px !important;
+                white-space: normal !important;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+            .dynamic-info {
+                align-items: center;
+                text-align: center;
+                min-height: auto;
+                margin-top: 5px;
             }
 
             .info-name {
-                font-size: 10px;
-                white-space: normal;
-
+                display: block;
+                font-size: 24px !important;
+                white-space: normal !important;
+                text-align: center;
+                margin-bottom: 10px;
             }
 
             .info-tagline {
-                display:none;
-
+                display: block;
+                font-size: 14px !important;
+                white-space: normal !important;
+                text-align: center;
+                margin-bottom: 15px;
             }
 
             .info-desc {
-                display: none;
+                display: block;
+                font-size: 12px !important;
+                text-align: center;
+                max-width: 90%;
             }
 
-            /* Farmhouses Slider */
-            .hero-title {
+            .wheel-controls {
+                margin-top: 15px;
+                margin-bottom: 20px;
+                justify-content: center;
+                display: flex;
+            }
 
+            /* Farmhouses Slider Mobile Layout */
+            .text-slide {
+                top: 20%;
+                left: 50%;
+
+                width: 90%;
+            }
+
+            .hero-title {
                 font-size: 40px;
+                text-align: center;
             }
 
             .hero-title .outlined {
-               margin-top: 1px;
+                margin-top: 0px;
                 margin-left: 0;
             }
 
-            .crafted-text {
-                font-size: 24px;
-            }
-
-            .bottom-left-panel {
-                left: 20px;
-                bottom: 20px;
-            }
-
             .farmhouses-section {
-                --mobile-right-panel-top: 90%;
-                --mobile-right-panel-right: -40px;
-                --mobile-right-panel-width: 30%;
-                --mobile-right-panel-max-height: 220px;
-                --mobile-png-width: auto;
-                --mobile-png-height: 100vh;
+                --mobile-png-width: 100%;
+                --mobile-png-height: 35vh;
                 --mobile-png-left: 50%;
-                --mobile-png-bottom: 40%;
-                --mobile-png-offset-x: 0px;
-                --mobile-png-offset-y: 190px;
-                --mobile-png-scale: 1;
+                --mobile-png-bottom: auto;
             }
 
             .png-slide {
-                left: var(--mobile-png-left);
-                bottom: var(--mobile-png-bottom);
-                width: var(--mobile-png-width);
-                height: var(--mobile-png-height);
+                left: 50%;
+                top: 25%;
+                bottom: auto;
+                width: 100vw;
+                height: 35vh;
+                object-fit: contain;
+                transform: translateX(100vw) scale(0.9);
             }
 
             .png-slide.active {
-                transform: translateX(calc(-50% + var(--mobile-png-offset-x))) translateY(var(--mobile-png-offset-y)) scale(var(--mobile-png-scale));
+                transform: translateX(-50%) scale(1);
+            }
+
+            .png-slide.prev {
+                transform: translateX(-150vw) scale(0.9);
             }
 
             .right-panel {
-
+                top: 73%;
+                right: auto;
+                left: 50%;
+                width: 80%;
+                transform: translate(100vw, -50%);
             }
 
             .glass-title {
-            text-align: center;
-            padding: 2px;
-            font-size: 16px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            margin-bottom: 5px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            color: #fff;
-        }
+                text-align: center;
+                padding: 2px;
+                font-size: 18px;
+                font-weight: 700;
+                letter-spacing: 1px;
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 6px;
+                margin-bottom: 10px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                color: #fff;
+            }
 
-        .adv-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+            .adv-list {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
 
-        .adv-item {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            padding: 0px 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
+            .adv-item {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 6px;
+                padding: 1px 8px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                opacity: 0;
+                transform: translateX(120px);
+                transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            }
 
-        .adv-item {
-            opacity: 0;
-            transform: translateX(120px);
-            filter: blur(0px);
-            transition:
-                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 1s cubic-bezier(0.16, 1, 0.3, 1),
-                filter 0.8s ease;
-        }
+            .adv-item h4 {
+                font-size: 10px;
+                font-weight: 600;
+                margin-bottom: 4px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                color: #fff;
+            }
 
-        .adv-item h4 {
-            font-size: 5px;
-            font-weight: 600;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #fff;
-        }
-
-        .adv-item p {
-            font-size: 10px;
-            font-weight: 300;
-            line-height: 1.5;
-            color: rgba(255, 255, 255, 0.7);
-            text-transform: uppercase;
-        }
+            .adv-item p {
+                font-size: 8px;
+                font-weight: 300;
+                line-height: 1.4;
+                color: rgba(255, 255, 255, 0.7);
+                text-transform: uppercase;
+            }
 
             .ui-slide.active .right-panel {
-                transform: translateY(-50%) translateX(0);
-
+                transform: translate(-50%, -50%);
             }
 
             .ui-slide.prev .right-panel {
-                transform: translateY(-50%) translateX(-100vw);
+                transform: translate(-150vw, -50%);
+            }
+
+            .bottom-left-panel {
+                left: 50%;
+                bottom: 20px;
+                transform: translateX(100vw);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                width: 100%;
+            }
+
+            .ui-slide.active .bottom-left-panel {
+                transform: translateX(-50%);
+            }
+
+            .ui-slide.prev .bottom-left-panel {
+                transform: translateX(-150vw);
+            }
+
+            .crafted-text {
+                font-size: 18px;
+                margin-bottom: 10px;
+                display: none;
+            }
+
+            .slider-controls {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
             }
 
             /* Menu Card */
             .menu-card {
-              top: 670px;
+                top: 670px;
                 left: 20px;
             }
 
@@ -2479,24 +2652,24 @@
 
             /* Footer */
             /* FOOTER FIX */
-    .footer-grid {
-        flex-direction: column;
-    }
+            .footer-grid {
+                flex-direction: column;
+            }
 
-    .footer-col {
-        border-right: none;
-        padding: 20px 0;
-        align-items: center !important;
-        text-align: center !important;
-    }
+            .footer-col {
+                border-right: none;
+                padding: 20px 0;
+                align-items: center !important;
+                text-align: center !important;
+            }
 
-    .footer-text {
-        white-space: normal;
-    }
+            .footer-text {
+                white-space: normal;
+            }
 
-    .subscribe-note {
-        white-space: normal;
-    }
+            .subscribe-note {
+                white-space: normal;
+            }
 
             /* Social Floating */
             .social-floating {
@@ -2519,121 +2692,6 @@
             }
         }
 
-        /* ================================================
-           LARGE SCREEN OPTIMIZATION (2560px+)
-           ================================================ */
-        @media (min-width: 2560px) {
-            /* Container max-width for ultra-wide */
-            .hero,
-            section,
-            footer {
-                max-width: 2560px;
-                margin: 0 auto;
-            }
-
-            /* Hero text scaling */
-            .bottom-text h1 {
-                font-size: 140px;
-            }
-
-            .bottom-text p {
-                font-size: 70px;
-            }
-
-            /* Theme slider cards */
-            .title-content h1 {
-                font-size: 80px;
-            }
-
-            .main-text h2 {
-                font-size: 34px;
-            }
-            
-             .main-text p {
-            font-size: 40px;
-        }
-
-            /* Amenities */
-            .card-slider {
-                width: 1000px;
-                height: 450px;
-            }
-
-            .amenity-card {
-                min-width: 320px;
-                height: 420px;
-            }
-
-            .banner .top {
-                font-size: 60px;
-            }
-
-            .banner .bottom {
-                font-size: 58px;
-            }
-
-            /* Investment circles */
-            .incomes-header h1 {
-                font-size: 48px;
-            }
-
-            .incomes-header h2 {
-                font-size: 18px;
-            }
-
-            /* Wheel */
-            .top-subtitle {
-                font-size: 80px;
-            }
-
-            .huge-title {
-                font-size: 120px;
-            }
-
-            .info-name {
-                font-size: 48px;
-            }
-
-            .info-tagline {
-                font-size: 28px;
-            }
-
-            .info-desc {
-                font-size: 20px;
-            }
-
-            /* Farmhouses */
-            .hero-title {
-                font-size: 160px;
-            }
-
-            .crafted-text {
-                font-size: 68px;
-            }
-
-            .glass-title {
-                font-size: 34px;
-            }
-
-            .adv-item h4 {
-                font-size: 20px;
-            }
-
-            .adv-item p {
-                font-size: 14px;
-            }
-
-            /* Footer */
-            footer {
-                padding: 80px 10%;
-            }
-
-            .footer-bold,
-            .footer-text,
-            .footer-contact-item {
-                font-size: 14px;
-            }
-        }
     </style>
 </head>
 
@@ -2641,27 +2699,21 @@
 
 <div class="social-floating">
     <div class="social-bg-image">
-        <a href="https://vatsalvarma.github.io/Greensiri-Contact/"
-           class="social-section social-enquiry"
+        <a href="https://vatsalvarma.github.io/Greensiri-Contact/" class="social-section social-enquiry"
            target="_blank">
             <div class="social-label">ENQUIRY NOW</div>
         </a>
 
-        <a href="tel:+919119925552"
-           class="social-section social-call">
+        <a href="tel:+919119925552" class="social-section social-call">
             <div class="social-label">CALL NOW</div>
         </a>
 
         <a href="https://wa.me/919999999999?text=Hello%20Greensiri,%20I'm%20interested%20in%20your%20properties"
-           class="social-section social-whatsapp"
-           target="_blank">
+           class="social-section social-whatsapp" target="_blank">
             <div class="social-label">WHATSAPP</div>
         </a>
 
-        <a href="#"
-           class="social-section social-contact"
-           id="chatbotToggle"
-           role="button">
+        <a href="#" class="social-section social-contact" id="chatbotToggle" role="button">
             <div class="social-label">CHAT-BOT</div>
         </a>
     </div>
@@ -2769,7 +2821,8 @@
 
                 <div class="card explore slide-up bg-solid">
                     <h3 style="font-size: 20px;"></h3>
-                    <p style="font-size: 14px;  margin-top:30px;" >Golden Circle tour - waterfalls, geysers, and national parks.</p>
+                    <p style="font-size: 14px;  margin-top:30px;">Golden Circle tour - waterfalls, geysers, and
+                        national parks.</p>
                 </div>
 
                 <div class="card center-img slide-up bg-image"
@@ -2829,7 +2882,8 @@
 
                 <div class="card explore slide-up bg-solid">
                     <h3 style="font-size: 20px;"></h3>
-                    <p style="font-size: 14px; margin-top:30px;">Visit the ancient ruins of Akrotiri and sail the caldera.</p>
+                    <p style="font-size: 14px; margin-top:30px;">Visit the ancient ruins of Akrotiri and sail the
+                        caldera.</p>
                 </div>
 
                 <div class="card center-img slide-up bg-image"
@@ -2881,17 +2935,14 @@
 
     <!-- MAP SECTION -->
     <section class="map" id="map">
-        <iframe
-                src="https://demo.prizmabrixx.in/"
-                allowfullscreen
-                loading="lazy">
+        <iframe src="https://demo.prizmabrixx.in/" allowfullscreen loading="lazy">
         </iframe>
     </section>
 
     <!-- AMENITIES SECTION -->
     <section class="amenities-scene" id="ame">
         <img src="https://raw.githubusercontent.com/vatsalvarma/Greensiri-landingpage/refs/heads/main/women.png"
-             class="girl-image"/>
+             class="girl-image" />
 
         <div class="card-slider">
             <div class="card-track" id="cardTrack">
@@ -3141,7 +3192,7 @@
     <!-- INVESTMENT CIRCLES SECTION -->
     <section class="sec-incomes" id="inc">
         <img src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/boyimg.png"
-             class="boy-image"/>
+             class="boy-image" />
         <div class="bg-image"></div>
 
         <div class="incomes-header">
@@ -3220,7 +3271,8 @@
                         src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Portrati%202.png">
                 <div class="strip-title2">FARMS FAMILY</div>
             </div>
-            <div class="strip-card2" onclick="goProject('https://vatsalvarma.github.io/farms-celebration-greensiri/')">
+            <div class="strip-card2"
+                 onclick="goProject('https://vatsalvarma.github.io/farms-celebration-greensiri/')">
                 <img
                         src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Portrati%203.png">
                 <div class="strip-title2">FARMS CELEBRATION</div>
@@ -3405,11 +3457,13 @@
             </div>
 
             <div class="footer-col">
-                <a href="tel:+919511125552" class="footer-contact-item" style="color: white; text-decoration: none;">
+                <a href="tel:+919511125552" class="footer-contact-item"
+                   style="color: white; text-decoration: none;">
                     <i class="fa-solid fa-phone"></i>
                     +91 95111 25552
                 </a>
-                <a href="mailto:contact@greensiri.in" class="footer-contact-item" style="color: white; text-decoration: none;">
+                <a href="mailto:contact@greensiri.in" class="footer-contact-item"
+                   style="color: white; text-decoration: none;">
                     <i class="fa-regular fa-envelope"></i>
                     contact@greensiri.in
                 </a>
@@ -3439,12 +3493,18 @@
             <div class="footer-col footer-social">
                 <h5>SOCIAL MEDIA LINKS</h5>
                 <div class="footer-social-icons">
-                    <a href="https://www.facebook.com/greensiriproperties" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/greensiri_properties" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@Greensiri" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="https://in.pinterest.com/greensiriproperties" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a>
-                    <a href="https://www.linkedin.com/company/greensiri-infra-llp/posts/?feedView=all" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://wa.me/919511125552?text=" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/greensiriproperties" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/greensiri_properties" target="_blank"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@Greensiri" target="_blank"><i
+                            class="fa-brands fa-youtube"></i></a>
+                    <a href="https://in.pinterest.com/greensiriproperties" target="_blank"><i
+                            class="fa-brands fa-pinterest-p"></i></a>
+                    <a href="https://www.linkedin.com/company/greensiri-infra-llp/posts/?feedView=all"
+                       target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/919511125552?text=" target="_blank"><i
+                            class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -3590,7 +3650,7 @@
                 if (autoScroll) {
                     smoothExit(direction);
                 } else {
-                    snapContainer.scrollBy({top: 2 * direction, behavior: 'smooth'});
+                    snapContainer.scrollBy({ top: 2 * direction, behavior: 'smooth' });
                 }
             }
         }
@@ -3684,14 +3744,14 @@
             }
         }
 
-        snapContainer.addEventListener('wheel', handleWheel, {passive: false});
+        snapContainer.addEventListener('wheel', handleWheel, { passive: false });
 
         let touchStartY = 0;
         let touchEndY = 0;
 
         snapContainer.addEventListener('touchstart', (e) => {
             touchStartY = e.changedTouches[0].screenY;
-        }, {passive: true});
+        }, { passive: true });
 
         snapContainer.addEventListener('touchend', (e) => {
             if (!isScrollLocked || isAnimating) return;
@@ -3722,7 +3782,7 @@
                     goToTheme('prev');
                 }
             }
-        }, {passive: true});
+        }, { passive: true });
     });
 
     // =====================================================================
@@ -3775,12 +3835,12 @@
        INVESTMENT CIRCLES SECTION
        ================================================ */
     const circleData = [
-        {top: "LIFETIME", bottom: "HEALTH AND WEALTH", img: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Life%20time%20income.png"},
-        {top: "MONTHLY", bottom: "FARMHOUSE RENTALS", img: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/monthly.png"},
-        {top: "QUARTERLY", bottom: "SHORT TERM CROPS", img: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Quaterly.png"},
-        {top: "HALF-YEARLY", bottom: "SPECIAL CROPS", img: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Half%20year.png"},
-        {top: "YEARLY", bottom: "SEASONAL CROPS", img: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Yearly.png"},
-        {top: "LONG TERM", bottom: "TIMBER PLANTS", img: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Long%20term.png"}
+        { top: "LIFETIME", bottom: "HEALTH AND WEALTH", img: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Life%20time%20income.png" },
+        { top: "MONTHLY", bottom: "FARMHOUSE RENTALS", img: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/monthly.png" },
+        { top: "QUARTERLY", bottom: "SHORT TERM CROPS", img: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Quaterly.png" },
+        { top: "HALF-YEARLY", bottom: "SPECIAL CROPS", img: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Half%20year.png" },
+        { top: "YEARLY", bottom: "SEASONAL CROPS", img: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Yearly.png" },
+        { top: "LONG TERM", bottom: "TIMBER PLANTS", img: "https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Long%20term.png" }
     ];
 
     const CN = circleData.length;
@@ -3807,7 +3867,7 @@
     }
 
     function cUpdate() {
-        cItems.forEach(({el, shape, label}, i) => {
+        cItems.forEach(({ el, shape, label }, i) => {
             const pos = cGetPos(i);
             let tx, opacity, zIdx, w, h, lSize, lWeight, lOpacity, pointer;
 
@@ -3909,13 +3969,13 @@
             const el = document.createElement('div');
             el.className = 'c-item';
             el.innerHTML = `
-            <div class="c-label"></div>
-            <div class="c-shape" style="background-image:url('${d.img}')"></div>`;
+    <div class="c-label"></div>
+    <div class="c-shape" style="background-image:url('${d.img}')"></div>`;
             cRowEl.appendChild(el);
 
             const shape = el.querySelector('.c-shape');
             const label = el.querySelector('.c-label');
-            cItems.push({el, shape, label});
+            cItems.push({ el, shape, label });
 
             el.addEventListener('click', () => {
                 const pos = cGetPos(i);
@@ -3961,7 +4021,7 @@
 
         cRowEl.addEventListener('touchstart', e => {
             dragStart = e.touches[0].clientX;
-        }, {passive: true});
+        }, { passive: true });
         cRowEl.addEventListener('touchend', e => {
             const dx = e.changedTouches[0].clientX - dragStart;
             if (Math.abs(dx) > 60) {
@@ -4059,6 +4119,14 @@
     let currentAngle = 0;
     let wheelActiveIndex = 1;
 
+    function getWheelRadius() {
+        return window.innerWidth <= 768 ? '30vh' : '40vh';
+    }
+
+    function getMobileRotationOffset() {
+        return window.innerWidth <= 768 ? -90 : 0;
+    }
+
     function initWheel() {
         wheelData.forEach((item, i) => {
             const node = document.createElement('div');
@@ -4066,9 +4134,9 @@
             node.dataset.index = i;
             const degree = i * 60;
             node.innerHTML = `
-            <img src="${item.icon}" alt="${item.title}" style="width: ${item.iconWidth}; height: ${item.iconHeight};">
-            <span class="node-label">${item.title}</span>`;
-            node.style.transform = `rotate(${degree}deg) translate(40vh) rotate(-${degree}deg)`;
+    <img src="${item.icon}" alt="${item.title}" style="width: ${item.iconWidth}; height: ${item.iconHeight};">
+    <span class="node-label">${item.title}</span>`;
+            node.style.transform = `rotate(${degree}deg) translate(${getWheelRadius()}) rotate(-${degree}deg)`;
             arcRotator.appendChild(node);
         });
         updateWheelUI();
@@ -4076,11 +4144,14 @@
 
     function updateWheelUI() {
         const targetRotation = -currentAngle;
-        arcRotator.style.transform = `rotate(${targetRotation}deg)`;
+        const mobileOffset = getMobileRotationOffset();
+        const radius = getWheelRadius();
+
+        arcRotator.style.transform = `rotate(${targetRotation + mobileOffset}deg)`;
 
         document.querySelectorAll('.wheel-node').forEach((node, i) => {
             const degree = i * 60 - 60;
-            node.style.transform = `rotate(${degree}deg) translate(40vh) rotate(${-(degree + targetRotation)}deg)`;
+            node.style.transform = `rotate(${degree}deg) translate(${radius}) rotate(${-(degree + targetRotation + mobileOffset)}deg)`;
             const isActive = i === wheelActiveIndex;
             node.classList.toggle('active', isActive);
 
@@ -4105,6 +4176,8 @@
             dynamicInfo.classList.add('show');
         }, 220);
     }
+
+    window.addEventListener('resize', updateWheelUI);
 
     let wheelInterval;
 
@@ -4159,8 +4232,8 @@
                     title: "BUDGET FRIENDLY STAY",
                     desc: "AFFORDABLE ALTERNATIVE TO HOTELS WITHOUT COMPROMISING BASIC COMFORT."
                 },
-                {title: "COMPACT PRIVATE SPACE", desc: "PERSONAL SLEEPING POD THAT OFFERS PRIVACY IN A SMALL FOOTPRINT."},
-                {title: "PRIME LOCATION ACCESS", desc: "USUALLY LOCATED NEAR TRANSIT HUBS AND CITY HOTSPOTS."},
+                { title: "COMPACT PRIVATE SPACE", desc: "PERSONAL SLEEPING POD THAT OFFERS PRIVACY IN A SMALL FOOTPRINT." },
+                { title: "PRIME LOCATION ACCESS", desc: "USUALLY LOCATED NEAR TRANSIT HUBS AND CITY HOTSPOTS." },
                 {
                     title: "SAFE SECURE PODS",
                     desc: "INDIVIDUAL CAPSULES WITH LOCKERS AND CONTROLLED ENTRY FOR SAFETY."
@@ -4299,7 +4372,7 @@
             const bgDiv = document.createElement('div');
             bgDiv.className = `bg-slide ${i === 0 ? 'active' : ''}`;
             bgDiv.style.backgroundImage = `url(${slide.bg})`;
-            bgDiv.appendChild(Object.assign(document.createElement('div'), {className: 'bg-overlay'}));
+            bgDiv.appendChild(Object.assign(document.createElement('div'), { className: 'bg-overlay' }));
             layerBg.appendChild(bgDiv);
 
             const textDiv = document.createElement('div');
@@ -4314,29 +4387,29 @@
             layerPng.appendChild(pngImg);
 
             const cardsHtml = slide.cards.map(card => `
-            <div class="adv-item">
-                <h4>${card.title}</h4>
-                <p>${card.desc}</p>
-            </div>`).join('');
+    <div class="adv-item">
+        <h4>${card.title}</h4>
+        <p>${card.desc}</p>
+    </div>`).join('');
 
             const uiDiv = document.createElement('div');
             uiDiv.className = `ui-slide ${i === 0 ? 'active' : ''}`;
             uiDiv.innerHTML = `
-            <div class="bottom-left-panel">
-                <div class="crafted-text">${slide.subtitle}</div>
-                <div class="slider-controls">
-                    <button class="arrow-btn prev-btn">
-                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                    </button>
-                    <button class="arrow-btn next-btn">
-                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </button>
-                </div>
-            </div>
-            <div class="right-panel">
-                <div class="glass-title">${slide.title}</div>
-                <div class="adv-list">${cardsHtml}</div>
-            </div>`;
+    <div class="bottom-left-panel">
+        <div class="crafted-text">${slide.subtitle}</div>
+        <div class="slider-controls">
+            <button class="arrow-btn prev-btn">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </button>
+            <button class="arrow-btn next-btn">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+    </div>
+    <div class="right-panel">
+        <div class="glass-title">${slide.title}</div>
+        <div class="adv-list">${cardsHtml}</div>
+    </div>`;
             layerUi.appendChild(uiDiv);
         });
 
