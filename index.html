@@ -2,6 +2,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -2220,7 +2221,7 @@
 
             .strip-card,
             .strip-card2 {
-                width: 120px;
+                width: 90px;
                 height: 300px;
             }
 
@@ -2290,14 +2291,14 @@
 
             /* Wheel Section */
             .arc-container {
-                left: -50%;
-                width: 60vh;
-                height: 60vh;
+                left: -70%;
+                width: 50vh;
+                height: 50vh;
             }
 
             .right-display {
-                top: 60%;
-                right: 55%;
+                top: 67%;
+                right: 39%;
                 width: 90%;
                 text-align: center;
                 align-items: center;
@@ -2314,14 +2315,13 @@
             }
 
             .info-name {
-                font-size: 20px;
+                font-size: 10px;
                 white-space: normal;
 
             }
 
             .info-tagline {
-                font-size: 4px;
-                white-space: normal;
+                display:none;
 
             }
 
@@ -2332,10 +2332,11 @@
             /* Farmhouses Slider */
             .hero-title {
 
-                font-size: 48px;
+                font-size: 40px;
             }
 
             .hero-title .outlined {
+               margin-top: 1px;
                 margin-left: 0;
             }
 
@@ -2349,14 +2350,14 @@
             }
 
             .farmhouses-section {
-                --mobile-right-panel-top: 20%;
-                --mobile-right-panel-right: 6px;
-                --mobile-right-panel-width: 60%;
+                --mobile-right-panel-top: 90%;
+                --mobile-right-panel-right: -40px;
+                --mobile-right-panel-width: 30%;
                 --mobile-right-panel-max-height: 220px;
                 --mobile-png-width: auto;
                 --mobile-png-height: 100vh;
                 --mobile-png-left: 50%;
-                --mobile-png-bottom: 0%;
+                --mobile-png-bottom: 40%;
                 --mobile-png-offset-x: 0px;
                 --mobile-png-offset-y: 190px;
                 --mobile-png-scale: 1;
@@ -2374,8 +2375,67 @@
             }
 
             .right-panel {
-               display: none;
+
             }
+
+            .glass-title {
+            text-align: center;
+            padding: 2px;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-bottom: 5px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            color: #fff;
+        }
+
+        .adv-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .adv-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 0px 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .adv-item {
+            opacity: 0;
+            transform: translateX(120px);
+            filter: blur(0px);
+            transition:
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.8s ease;
+        }
+
+        .adv-item h4 {
+            font-size: 5px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #fff;
+        }
+
+        .adv-item p {
+            font-size: 10px;
+            font-weight: 300;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+        }
 
             .ui-slide.active .right-panel {
                 transform: translateY(-50%) translateX(0);
