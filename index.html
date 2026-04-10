@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -2508,7 +2509,7 @@
 
             .png-slide {
                 left: 50%;
-                top: 25%;
+                top: 20%;
                 bottom: auto;
                 width: 100vw;
                 height: 35vh;
@@ -2525,7 +2526,7 @@
             }
 
             .right-panel {
-                top: 71%;
+                top: 65%;
                 right: auto;
                 left: 50%;
                 width: 80%;
@@ -2594,7 +2595,7 @@
 
             .bottom-left-panel {
                 left: 50%;
-                bottom: 20px;
+                bottom: 80px;
                 transform: translateX(100vw);
                 display: flex;
                 flex-direction: column;
@@ -2635,8 +2636,10 @@
 
             /* Happy Faces */
             .faces-section {
-                --mobile-face-card-width: 220px;
-                --mobile-face-card-height: 140px;
+                --mobile-face-card-width: 200px;
+                --mobile-face-card-height: 128px;
+                --mobile-faces-forward-bottom: 320px;
+                --mobile-faces-reverse-bottom: 150px;
             }
 
             .faces-title {
@@ -2652,6 +2655,20 @@
             .face-card {
                 width: var(--mobile-face-card-width);
                 height: var(--mobile-face-card-height);
+                border-radius: 10px;
+            }
+
+            .faces-slider {
+                bottom: var(--mobile-faces-forward-bottom);
+            }
+
+            .faces-slider.reverse {
+                bottom: var(--mobile-faces-reverse-bottom);
+            }
+
+            .face-card img {
+                transform: translateY(-8px) scale(0.94);
+                transform-origin: center top;
             }
             /* Footer */
             /* FOOTER FIX */
@@ -4644,3 +4661,4 @@
 </body>
 
 </html>
++
