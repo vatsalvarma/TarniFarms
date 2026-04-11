@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -899,7 +895,8 @@
 
         .boy-image {
             position: absolute;
-            left: calc(64% + 93px); /* Perfectly anchors visually identical to 1053px on a 1920px screen */
+            left: calc(64% + 93px);
+            /* Perfectly anchors visually identical to 1053px on a 1920px screen */
             bottom: 6%;
             height: 39%;
             z-index: 9999;
@@ -1034,6 +1031,14 @@
             color: #fff;
             line-height: 1.1;
             margin-bottom: 50px;
+        }
+
+        .sec-wheel .top-subtitle {
+            font-size: 60px;
+        }
+
+        .sec-wheel .huge-title {
+            font-size: 90px;
         }
 
         .dynamic-info {
@@ -2050,6 +2055,473 @@
             cursor: pointer;
         }
 
+        /*
+         * Appreciation wheel (≥2200px) — edit ONLY custom properties on .sec-wheel.
+         * Text: subtitle, headline, dynamic copy, nav arrows.
+         * Icons: inactive/active PNG sizes, node hit-box, arc ring, label, center dot, translate radius.
+         */
+        @media (min-width: 2200px) {
+            .sec-wheel {
+                --wheel-subtitle-size: 120px;
+                --wheel-huge-size: 152px;
+                --wheel-info-name-size: 74px;
+                --wheel-info-tagline-size: 36px;
+                --wheel-info-desc-size: 30px;
+                --wheel-info-name-mb: 8px;
+                --wheel-info-tagline-mb: 24px;
+                --wheel-dynamic-max-width: 680px;
+                --wheel-right-display-width: 760px;
+                --wheel-controls-gap: 28px;
+                --wheel-controls-margin-top: 56px;
+                --wheel-controls-btn-size: 42px;
+                --wheel-arc-size: 92vh;
+                --wheel-arc-left: -42vh;
+                --wheel-arc-radius: 46vh;
+                --wheel-node-box: 100px;
+                --wheel-icon-inactive: 100px;
+                --wheel-icon-active: 302px;
+                --wheel-node-dot: 8px;
+                --wheel-label-size: 21px;
+                --wheel-label-left: 112px;
+                --wheel-label-tracking: 1.2px;
+            }
+
+            .sec-wheel .right-display {
+                width: min(100%, var(--wheel-right-display-width));
+            }
+
+            .sec-wheel .dynamic-info {
+                max-width: var(--wheel-dynamic-max-width);
+            }
+
+            .sec-wheel .top-subtitle {
+                font-size: var(--wheel-subtitle-size);
+            }
+
+            .sec-wheel .huge-title {
+                font-size: var(--wheel-huge-size);
+            }
+
+            .sec-wheel .info-name {
+                font-size: var(--wheel-info-name-size);
+                margin-bottom: var(--wheel-info-name-mb);
+            }
+
+            .sec-wheel .info-tagline {
+                font-size: var(--wheel-info-tagline-size);
+                margin-bottom: var(--wheel-info-tagline-mb);
+            }
+
+            .sec-wheel .info-desc {
+                font-size: var(--wheel-info-desc-size);
+            }
+
+            .sec-wheel .wheel-controls {
+                gap: var(--wheel-controls-gap);
+                margin-top: var(--wheel-controls-margin-top);
+            }
+
+            .sec-wheel .wheel-controls button {
+                font-size: var(--wheel-controls-btn-size);
+            }
+
+            .sec-wheel .arc-container {
+                width: var(--wheel-arc-size);
+                height: var(--wheel-arc-size);
+                left: var(--wheel-arc-left);
+            }
+
+            .sec-wheel .wheel-node {
+                width: var(--wheel-node-box);
+                height: var(--wheel-node-box);
+                margin-top: calc(var(--wheel-node-box) / -2);
+                margin-left: calc(var(--wheel-node-box) / -2);
+            }
+
+            .sec-wheel .wheel-node img {
+                width: var(--wheel-icon-inactive) !important;
+                height: var(--wheel-icon-inactive) !important;
+            }
+
+            .sec-wheel .wheel-node.active img {
+                width: var(--wheel-icon-active) !important;
+                height: var(--wheel-icon-active) !important;
+            }
+
+            .sec-wheel .node-label {
+                left: var(--wheel-label-left);
+                font-size: var(--wheel-label-size);
+                letter-spacing: var(--wheel-label-tracking);
+            }
+
+            .sec-wheel .wheel-node::before {
+                width: var(--wheel-node-dot);
+                height: var(--wheel-node-dot);
+            }
+        }
+
+        @media (min-width: 2250px) {
+            :root {
+                --theme2k-card-gap: clamp(18px, 1vw, 28px);
+                --theme2k-card-padding: clamp(24px, 1.4vw, 40px);
+                --theme2k-title-padding: clamp(26px, 1.5vw, 44px);
+                --theme2k-title-size: clamp(78px, 4vw, 108px);
+                --theme2k-title-subtext: clamp(16px, 0.95vw, 24px);
+                --theme2k-main-heading: clamp(38px, 2.1vw, 48px);
+                --theme2k-body-text: clamp(28px, 1.95vw, 30px);
+                --theme2k-card-heading: clamp(30px, 2vw, 38px);
+                --theme2k-button-text: clamp(20px, 1vw, 28px);
+                --theme2k-button-letter-spacing: 1px;
+                --theme2k-card-radius: clamp(8px, 0.45vw, 16px);
+            }
+
+            .nav-links a {
+                font-size: clamp(16px, 0.85vw, 22px);
+            }
+
+            .bottom-text h1 {
+                font-size: clamp(120px, 7vw, 180px);
+            }
+
+            .bottom-text p {
+                font-size: clamp(56px, 3vw, 84px);
+            }
+
+            /* Theme Slider Section - Page 2 */
+            .slider-wrapper .theme-grid {
+                gap: var(--theme2k-card-gap);
+                padding: clamp(22px, 1.2vw, 36px);
+            }
+
+            .slider-wrapper .card {
+                border-radius: var(--theme2k-card-radius);
+                padding: var(--theme2k-card-padding);
+            }
+
+            .slider-wrapper .title-card .title-content {
+                padding: var(--theme2k-title-padding);
+            }
+
+            .slider-wrapper .title-content h1 {
+                font-size: var(--theme2k-title-size) !important;
+                line-height: 1.05;
+            }
+
+            .slider-wrapper .title-content p {
+                font-size: var(--theme2k-title-subtext) !important;
+                line-height: 1.5;
+                letter-spacing: 0.8px;
+            }
+
+            .slider-wrapper .main-text h2 {
+                font-size: var(--theme2k-main-heading) !important;
+                line-height: 1.2;
+            }
+
+            .slider-wrapper .main-text p,
+            .slider-wrapper .explore p,
+            .slider-wrapper .stay p,
+            .slider-wrapper .cuisine p {
+                font-size: var(--theme2k-body-text) !important;
+                line-height: 1.55;
+            }
+
+            .slider-wrapper .bg-solid h3,
+            .slider-wrapper .explore h3,
+            .slider-wrapper .stay h3,
+            .slider-wrapper .cuisine h3 {
+                font-size: var(--theme2k-card-heading) !important;
+                line-height: 1.2;
+            }
+
+            .slider-wrapper .action-btn,
+            .slider-wrapper .nav-btn {
+                font-size: var(--theme2k-button-text) !important;
+                letter-spacing: var(--theme2k-button-letter-spacing) !important;
+            }
+
+            .title-content h1 {
+                font-size: clamp(78px, 4vw, 108px);
+            }
+
+            .title-content p {
+                font-size: clamp(16px, 0.95vw, 24px);
+            }
+
+            .main-text h2 {
+                font-size: clamp(32px, 1.7vw, 48px);
+            }
+
+            .main-text p,
+            .bg-solid p,
+            .stay p,
+            .cuisine p {
+                font-size: clamp(15px, 0.82vw, 22px);
+            }
+
+            .bg-solid h3,
+            .stay h3,
+            .cuisine h3,
+            .action-btn,
+            .nav-btn {
+                font-size: clamp(20px, 1vw, 28px);
+            }
+
+            .title-card .title-content,
+            .main-text,
+            .explore,
+            .stay,
+            .cuisine,
+            .action-btn {
+                padding: clamp(24px, 1.4vw, 40px);
+            }
+
+            .strip-title,
+            .strip-title2 {
+                font-size: clamp(52px, 3vw, 82px);
+            }
+
+            .strip-heading,
+            .strip-heading2,
+            .vmc-title {
+                font-size: clamp(48px, 2.7vw, 76px);
+            }
+
+            .strip-gallery {
+                gap: clamp(18px, 1.4vw, 36px);
+                transform: translateX(-500px);
+            }
+
+
+            .strip-gallery2 {
+                gap: clamp(18px, 1.4vw, 36px);
+
+            }
+
+            .strip-card,
+            .strip-card2 {
+                width: clamp(230px, 14vw, 320px);
+                height: clamp(730px, 64vw, 920px);
+
+            }
+
+            .card-slider {
+                top: 44%;
+                width: clamp(980px, 52vw, 1320px);
+                height: clamp(520px, 32vh, 680px);
+            }
+
+            .amenity-card {
+                min-width: clamp(260px, 17vw, 420px);
+                height: clamp(460px, 28vh, 620px);
+                margin: 0 clamp(20px, 1.2vw, 34px);
+                transform: scale(0.94);
+            }
+
+            .amenity-card.active {
+                transform: scale(1.38);
+            }
+
+            .amenity-card:has(+ .active),
+            .amenity-card.active+.amenity-card {
+                transform: scale(1.08);
+            }
+
+            .banner .top {
+                font-size: clamp(58px, 3.3vw, 90px);
+            }
+
+            .banner .bottom {
+                font-size: clamp(54px, 3vw, 84px);
+            }
+
+            .banner p {
+                letter-spacing: 1.4px;
+            }
+
+            .banner {
+                width: clamp(980px, 58vw, 1480px);
+            }
+
+            .amenity-card span {
+                font-size: clamp(18px, 1vw, 28px);
+            }
+
+            .incomes-header h1 {
+                font-size: clamp(46px, 2.4vw, 70px);
+            }
+
+            .incomes-header h2,
+            .c-desc {
+                font-size: clamp(16px, 0.9vw, 24px);
+            }
+
+            .c-label {
+                font-size: clamp(18px, 1vw, 28px);
+                letter-spacing: 2px;
+            }
+
+            .circles-stage {
+                transform: scale(1.1);
+                transform-origin: center center;
+            }
+
+            .circles-row {
+                height: clamp(420px, 30vh, 540px);
+            }
+
+            .c-shape {
+                box-shadow: 0 24px 72px rgba(64, 39, 20, 0.32);
+            }
+
+            .c-arrows button,
+            .arrow-btn svg {
+                font-size: clamp(28px, 1.4vw, 40px);
+            }
+
+            /*
+             * Farmhouses slider — right “glass” stack (≥2250px)
+             * Edit ONLY the custom properties on .farmhouses-section below.
+             */
+            .farmhouses-section {
+                --fh-glass-panel-width: 740px;
+                --fh-glass-panel-right: 106px;
+                --fh-glass-panel-top: 70%;
+                --fh-glass-list-gap: 20px;
+                --fh-glass-title-size: 36px;
+                --fh-glass-title-pad-y: 14px;
+                --fh-glass-title-pad-x: 24px;
+                --fh-glass-title-margin-bottom: 20px;
+                --fh-glass-title-radius: 10px;
+                --fh-glass-title-letter-spacing: 1px;
+                --fh-glass-card-pad-y: 18px;
+                --fh-glass-card-pad-x: 28px;
+                --fh-glass-card-radius: 10px;
+                --fh-glass-card-min-height: auto;
+                --fh-glass-h4-size: 25px;
+                --fh-glass-h4-margin-bottom: 8px;
+                --fh-glass-h4-letter-spacing: 0.65px;
+                --fh-glass-p-size: 19px;
+                --fh-glass-p-line-height: 1.55;
+            }
+
+            .farmhouses-section .right-panel {
+                width: var(--fh-glass-panel-width);
+                right: var(--fh-glass-panel-right);
+                top: var(--fh-glass-panel-top);
+                max-width: calc(100vw - var(--fh-glass-panel-right) - 48px);
+            }
+
+            .farmhouses-section .adv-list {
+                gap: var(--fh-glass-list-gap);
+            }
+
+            .farmhouses-section .glass-title {
+                font-size: var(--fh-glass-title-size);
+                padding: var(--fh-glass-title-pad-y) var(--fh-glass-title-pad-x);
+                margin-bottom: var(--fh-glass-title-margin-bottom);
+                border-radius: var(--fh-glass-title-radius);
+                letter-spacing: var(--fh-glass-title-letter-spacing);
+            }
+
+            .farmhouses-section .adv-item {
+                padding: var(--fh-glass-card-pad-y) var(--fh-glass-card-pad-x);
+                border-radius: var(--fh-glass-card-radius);
+                min-height: var(--fh-glass-card-min-height);
+            }
+
+            .farmhouses-section .adv-item h4 {
+                font-size: var(--fh-glass-h4-size);
+                margin-bottom: var(--fh-glass-h4-margin-bottom);
+                letter-spacing: var(--fh-glass-h4-letter-spacing);
+            }
+
+            .farmhouses-section .adv-item p {
+                font-size: var(--fh-glass-p-size);
+                line-height: var(--fh-glass-p-line-height);
+            }
+
+             .face-card {
+            width: clamp(400px, 24vw, 650px);
+            height: clamp(300px, 14vh, 300px);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .face-card img {
+            width: 100%;
+            height: 100%;
+
+            transition: transform 0.9s ease;
+        }
+
+        .face-card:hover img {
+            transform: scale(1.2);
+        }
+
+        .reverse {
+            bottom: clamp(20px, 4vh, 60px);
+        }
+
+        .reverse-track {
+            display: flex;
+            gap: clamp(14px, 2vw, 36px);
+            width: max-content;
+            flex-shrink: 0;
+        }
+
+
+
+        .reverse:hover .reverse-track {
+            animation-play-state: paused;
+        }
+
+            .hero-title {
+                font-size: clamp(150px, 8vw, 220px);
+            }
+
+            .crafted-text {
+                font-size: clamp(64px, 3.4vw, 96px);
+            }
+
+            .menu-card li {
+                font-size: clamp(22px, 1.2vw, 34px);
+            }
+
+            .faces-title {
+                font-size: clamp(42px, 2.5vw, 80px);
+            }
+
+            .faces-text {
+                font-size: clamp(16px, 0.95vw, 24px);
+            }
+
+            .footer-bold,
+            .footer-text,
+            .footer-contact-item,
+            .footer-subscribe h5,
+            .footer-social h5,
+            .subscribe-form input,
+            .subscribe-form button,
+            .subscribe-note,
+            .footer-bottom,
+            .footer-bottom p,
+            .social-label,
+            .chat-message,
+            .chatbot-input,
+            .chatbot-send,
+            .chatbot-title {
+                font-size: clamp(14px, 0.8vw, 20px);
+            }
+
+
+            .footer-tagline {
+                font-size: clamp(12px, 0.72vw, 18px);
+            }
+        }
+
         /* ================================================
            MOBILE RESPONSIVE STYLES
            ================================================ */
@@ -2471,8 +2943,8 @@
                 max-width: 90%;
             }
 
-            .node-label{
-            display: none;
+            .node-label {
+                display: none;
             }
 
             .wheel-controls {
@@ -2670,6 +3142,7 @@
                 transform: translateY(-8px) scale(0.94);
                 transform-origin: center top;
             }
+
             /* Footer */
             /* FOOTER FIX */
             .footer-grid {
@@ -2711,6 +3184,14 @@
                 height: 60vh;
             }
         }
+
+
+        @media (min-width: 2560px) {
+    .zoom-wrapper {
+        zoom: 1.2;
+    }
+}
+
 
     </style>
 </head>
@@ -2785,7 +3266,7 @@
                 <span></span>
                 <span></span>
             </div>
-
+            <div class="zoom-wrapper">  <!-- ADD THIS -->
             <div class="nav-links" id="navLinks">
                 <a href="https://vatsalvarma.github.io/GREENSIRI---prbxxxx/">HOME</a>
                 <a href="#th">FARMHOUSE</a>
@@ -2796,6 +3277,7 @@
                 <a href="#ggallery">GALLERY</a>
                 <a href="https://vatsalvarma.github.io/Greensiri-Contact/">CONTACT</a>
             </div>
+        </div>
         </div>
 
         <div class="bottom-text">
@@ -2935,17 +3417,17 @@
     <section class="strip-section" id="gallery">
         <div class="vmc-title strip-heading"></div>
         <div class="strip-gallery">
-            <div class="strip-card" >
+            <div class="strip-card">
                 <img
                         src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Portrati%201.png">
                 <div class="strip-title">45 ACRES</div>
             </div>
-            <div class="strip-card" >
+            <div class="strip-card">
                 <img
                         src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Portrati%202.png">
                 <div class="strip-title">20+ AMENITIES</div>
             </div>
-            <div class="strip-card" >
+            <div class="strip-card">
                 <img
                         src="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Portrati%203.png">
                 <div class="strip-title">200+ PLOTS</div>
@@ -3244,16 +3726,16 @@
             </div>
 
             <div class="right-display">
-                <div class="top-subtitle" style="font-size: 60px; white-space: nowrap;">WHY LAND WILL GET APPRECIATE
+                <div class="top-subtitle" style="white-space: nowrap;">WHY LAND WILL GET APPRECIATE
                 </div>
-                <div class="huge-title" style="font-size: 90px;white-space: nowrap;">3X IN 3 YEARS</div>
+                <div class="huge-title" style="white-space: nowrap;">3X IN 3 YEARS</div>
 
                 <div class="dynamic-info" id="dynamic-info">
                     <div class="info-name" id="info-name" style="white-space: nowrap;">LEPAKSHI TEMPLE</div>
-                    <div class="info-tagline" id="info-tagline" style="font-size: 22px; white-space: nowrap">MORE
+                    <div class="info-tagline" id="info-tagline" style="white-space: nowrap">MORE
                         TOURISM = HIGHER LAND VALUE
                     </div>
-                    <div class="info-desc" id="info-desc" style="font-size: 17px;">LOREM IPSUM DOLOR SIT AMET,
+                    <div class="info-desc" id="info-desc">LOREM IPSUM DOLOR SIT AMET,
                         CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA
                         ALIQUA.
                     </div>
@@ -3302,8 +3784,10 @@
         <div class="menu-card">
             <ul>
                 <li onclick="openSite('https://vatsalvarma.github.io/Shot-at-site/')">SHOT AT SITE</li>
-                <li onclick="openSite('https://vatsalvarma.github.io/Farms-Family-Greensiri/')">TARNI FARMS FAMILY</li>
-                <li onclick="openSite('https://vatsalvarma.github.io/farms-celebration-greensiri/')">TARNI FARMS CELEBRATIONS</li>
+                <li onclick="openSite('https://vatsalvarma.github.io/Farms-Family-Greensiri/')">TARNI FARMS FAMILY
+                </li>
+                <li onclick="openSite('https://vatsalvarma.github.io/farms-celebration-greensiri/')">TARNI FARMS
+                    CELEBRATIONS</li>
             </ul>
         </div>
     </section>
@@ -3536,7 +4020,7 @@
                 All Rights Reserved |
 
                 Website Design by
-                <span class="highlight">PRIZMABRIXX</span>
+                <a href="https://prizmabrixx.com/" target="_blank" rel="noopener noreferrer" class="highlight">PRIZMABRIXX</a>
             </p>
         </div>
     </footer>
@@ -3864,10 +4348,10 @@
     ];
 
     const CN = circleData.length;
-    const CD = 200;
-    const SD = 160;
-    const GAP = 40;
-    const DIST = CD / 2 + SD / 2 + GAP;
+    let CD = 200;
+    let SD = 160;
+    let GAP = 40;
+    let DIST = CD / 2 + SD / 2 + GAP;
 
     let cActive = 1;
     let cAutoInterval;
@@ -3875,6 +4359,23 @@
     const cRowEl = document.getElementById('circles-row');
     const cDescEl = document.getElementById('c-desc');
     let cItems = [];
+
+    function isLargeDesktopView() {
+        return window.matchMedia('(min-width: 2250px)').matches;
+    }
+
+    function updateCircleMetrics() {
+        if (isLargeDesktopView()) {
+            CD = 280;
+            SD = 210;
+            GAP = 56;
+        } else {
+            CD = 200;
+            SD = 160;
+            GAP = 40;
+        }
+        DIST = CD / 2 + SD / 2 + GAP;
+    }
 
     function cGetPos(i) {
         const diff = ((i - cActive) % CN + CN) % CN;
@@ -3897,7 +4398,7 @@
                     opacity = 1;
                     zIdx = 10;
                     w = h = CD;
-                    lSize = '26px';
+                    lSize = isLargeDesktopView() ? '34px' : '26px';
                     lWeight = '800';
                     lOpacity = '1';
                     pointer = 'none';
@@ -3907,7 +4408,7 @@
                     opacity = 1;
                     zIdx = 5;
                     w = h = SD;
-                    lSize = '15px';
+                    lSize = isLargeDesktopView() ? '20px' : '15px';
                     lWeight = '600';
                     lOpacity = '0.72';
                     pointer = 'auto';
@@ -3917,7 +4418,7 @@
                     opacity = 1;
                     zIdx = 5;
                     w = h = SD;
-                    lSize = '15px';
+                    lSize = isLargeDesktopView() ? '20px' : '15px';
                     lWeight = '600';
                     lOpacity = '0.72';
                     pointer = 'auto';
@@ -3927,7 +4428,7 @@
                     opacity = 0;
                     zIdx = 1;
                     w = h = SD;
-                    lSize = '15px';
+                    lSize = isLargeDesktopView() ? '20px' : '15px';
                     lWeight = '600';
                     lOpacity = '0';
                     pointer = 'none';
@@ -3937,7 +4438,7 @@
                     opacity = 0;
                     zIdx = 1;
                     w = h = SD;
-                    lSize = '15px';
+                    lSize = isLargeDesktopView() ? '20px' : '15px';
                     lWeight = '600';
                     lOpacity = '0';
                     pointer = 'none';
@@ -3947,7 +4448,7 @@
                     opacity = 0;
                     zIdx = 0;
                     w = h = SD;
-                    lSize = '15px';
+                    lSize = isLargeDesktopView() ? '20px' : '15px';
                     lWeight = '600';
                     lOpacity = '0';
                     pointer = 'none';
@@ -3985,12 +4486,14 @@
     }
 
     (function initCircles() {
+        updateCircleMetrics();
+
         circleData.forEach((d, i) => {
             const el = document.createElement('div');
             el.className = 'c-item';
             el.innerHTML = `
-    <div class="c-label"></div>
-    <div class="c-shape" style="background-image:url('${d.img}')"></div>`;
+<div class="c-label"></div>
+<div class="c-shape" style="background-image:url('${d.img}')"></div>`;
             cRowEl.appendChild(el);
 
             const shape = el.querySelector('.c-shape');
@@ -4057,6 +4560,11 @@
         document.getElementById('c-next').addEventListener('click', () => {
             cNavigate(1);
             cResetAuto();
+        });
+
+        window.addEventListener('resize', () => {
+            updateCircleMetrics();
+            cUpdate();
         });
 
         cUpdate();
@@ -4140,6 +4648,14 @@
     let wheelActiveIndex = 1;
 
     function getWheelRadius() {
+        if (window.matchMedia('(min-width: 2200px)').matches) {
+            const sec = document.querySelector('.sec-wheel');
+            if (sec) {
+                const r = getComputedStyle(sec).getPropertyValue('--wheel-arc-radius').trim();
+                if (r) return r;
+            }
+            return '46vh';
+        }
         return window.innerWidth <= 768 ? '30vh' : '40vh';
     }
 
@@ -4154,8 +4670,8 @@
             node.dataset.index = i;
             const degree = i * 60;
             node.innerHTML = `
-    <img src="${item.icon}" alt="${item.title}" style="width: ${item.iconWidth}; height: ${item.iconHeight};">
-    <span class="node-label">${item.title}</span>`;
+<img src="${item.icon}" alt="${item.title}" style="width: ${item.iconWidth}; height: ${item.iconHeight};">
+<span class="node-label">${item.title}</span>`;
             node.style.transform = `rotate(${degree}deg) translate(${getWheelRadius()}) rotate(-${degree}deg)`;
             arcRotator.appendChild(node);
         });
@@ -4176,7 +4692,14 @@
             node.classList.toggle('active', isActive);
 
             const img = node.querySelector('img');
-            if (isActive) {
+            const isWheelWide = window.matchMedia('(min-width: 2200px)').matches;
+            if (isWheelWide) {
+                img.style.width = '';
+                img.style.height = '';
+                img.style.filter = isActive
+                    ? 'drop-shadow(0 0 10px rgba(255,255,255,0.8))'
+                    : 'brightness(0) invert(1)';
+            } else if (isActive) {
                 img.style.width = wheelData[i].activeWidth;
                 img.style.height = wheelData[i].activeHeight;
                 img.style.filter = 'drop-shadow(0 0 10px rgba(255,255,255,0.8))';
@@ -4407,29 +4930,29 @@
             layerPng.appendChild(pngImg);
 
             const cardsHtml = slide.cards.map(card => `
-    <div class="adv-item">
-        <h4>${card.title}</h4>
-        <p>${card.desc}</p>
-    </div>`).join('');
+<div class="adv-item">
+    <h4>${card.title}</h4>
+    <p>${card.desc}</p>
+</div>`).join('');
 
             const uiDiv = document.createElement('div');
             uiDiv.className = `ui-slide ${i === 0 ? 'active' : ''}`;
             uiDiv.innerHTML = `
-    <div class="bottom-left-panel">
-        <div class="crafted-text">${slide.subtitle}</div>
-        <div class="slider-controls">
-            <button class="arrow-btn prev-btn">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            </button>
-            <button class="arrow-btn next-btn">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-        </div>
+<div class="bottom-left-panel">
+    <div class="crafted-text">${slide.subtitle}</div>
+    <div class="slider-controls">
+        <button class="arrow-btn prev-btn">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </button>
+        <button class="arrow-btn next-btn">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
     </div>
-    <div class="right-panel">
-        <div class="glass-title">${slide.title}</div>
-        <div class="adv-list">${cardsHtml}</div>
-    </div>`;
+</div>
+<div class="right-panel">
+    <div class="glass-title">${slide.title}</div>
+    <div class="adv-list">${cardsHtml}</div>
+</div>`;
             layerUi.appendChild(uiDiv);
         });
 
@@ -4550,7 +5073,7 @@
 
     chatbotClose?.addEventListener('click', closeChatbot);
     chatbotSend?.addEventListener('click', sendMessage);
-    chatbotInput?.addEventListener('keydown', (e) => {
+    chatbotInput?.addEventListener('keydown', (e) => {s
         if (e.key === 'Enter') sendMessage();
     });
 
